@@ -16,5 +16,15 @@ namespace ContactsApp.View
         {
             InitializeComponent();
         }
+
+        private void AddPhotoPictureBox_MouseEnter(object sender, EventArgs e)
+        {
+            AddPhotoPictureBox.Image = Properties.Resources.add_photo_32x32;
+        }
+
+        private void AddPhotoPictureBox_MouseLeave(object sender, EventArgs e)
+        {
+            AddPhotoPictureBox.Image = Properties.Resources.add_photo_32x32_gray;
+        }
     }
 }
