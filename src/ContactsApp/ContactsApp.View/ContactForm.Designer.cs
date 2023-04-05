@@ -113,95 +113,105 @@
             // 
             // FullNameTextBox
             // 
+            this.FullNameTextBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FullNameTextBox.Location = new System.Drawing.Point(121, 43);
             this.FullNameTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.FullNameTextBox.Name = "FullNameTextBox";
-            this.FullNameTextBox.Size = new System.Drawing.Size(384, 20);
+            this.FullNameTextBox.Size = new System.Drawing.Size(384, 22);
             this.FullNameTextBox.TabIndex = 2;
             this.FullNameTextBox.Text = "Абакумов Владимир";
             // 
             // FulNamelabel
             // 
             this.FulNamelabel.AutoSize = true;
+            this.FulNamelabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FulNamelabel.Location = new System.Drawing.Point(121, 24);
             this.FulNamelabel.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
             this.FulNamelabel.Name = "FulNamelabel";
-            this.FulNamelabel.Size = new System.Drawing.Size(57, 13);
+            this.FulNamelabel.Size = new System.Drawing.Size(61, 13);
             this.FulNamelabel.TabIndex = 3;
             this.FulNamelabel.Text = "Full Name:";
             // 
             // EmailLabel
             // 
             this.EmailLabel.AutoSize = true;
-            this.EmailLabel.Location = new System.Drawing.Point(121, 73);
+            this.EmailLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EmailLabel.Location = new System.Drawing.Point(121, 71);
             this.EmailLabel.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
             this.EmailLabel.Name = "EmailLabel";
-            this.EmailLabel.Size = new System.Drawing.Size(38, 13);
+            this.EmailLabel.Size = new System.Drawing.Size(41, 13);
             this.EmailLabel.TabIndex = 5;
             this.EmailLabel.Text = "E-mail:";
             // 
             // EmailTextBox
             // 
-            this.EmailTextBox.Location = new System.Drawing.Point(121, 92);
+            this.EmailTextBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EmailTextBox.Location = new System.Drawing.Point(121, 90);
             this.EmailTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.EmailTextBox.Name = "EmailTextBox";
-            this.EmailTextBox.Size = new System.Drawing.Size(384, 20);
+            this.EmailTextBox.Size = new System.Drawing.Size(384, 22);
             this.EmailTextBox.TabIndex = 4;
             this.EmailTextBox.Text = "abakumov@no.mail";
             // 
             // PhoneNumberLabel
             // 
             this.PhoneNumberLabel.AutoSize = true;
+            this.PhoneNumberLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.PhoneNumberLabel.Location = new System.Drawing.Point(121, 124);
             this.PhoneNumberLabel.Margin = new System.Windows.Forms.Padding(6, 6, 3, 0);
             this.PhoneNumberLabel.Name = "PhoneNumberLabel";
-            this.PhoneNumberLabel.Size = new System.Drawing.Size(81, 13);
+            this.PhoneNumberLabel.Size = new System.Drawing.Size(87, 13);
             this.PhoneNumberLabel.TabIndex = 7;
             this.PhoneNumberLabel.Text = "Phone Number:";
             // 
             // PhoneNumberTextBox
             // 
+            this.PhoneNumberTextBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.PhoneNumberTextBox.Location = new System.Drawing.Point(121, 143);
             this.PhoneNumberTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.PhoneNumberTextBox.Name = "PhoneNumberTextBox";
-            this.PhoneNumberTextBox.Size = new System.Drawing.Size(177, 20);
+            this.PhoneNumberTextBox.Size = new System.Drawing.Size(177, 22);
             this.PhoneNumberTextBox.TabIndex = 6;
             this.PhoneNumberTextBox.Text = "+7 (000) 000-00-00";
             // 
             // DateOfBirthLabel
             // 
             this.DateOfBirthLabel.AutoSize = true;
+            this.DateOfBirthLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.DateOfBirthLabel.Location = new System.Drawing.Point(121, 175);
             this.DateOfBirthLabel.Margin = new System.Windows.Forms.Padding(6, 6, 3, 0);
             this.DateOfBirthLabel.Name = "DateOfBirthLabel";
-            this.DateOfBirthLabel.Size = new System.Drawing.Size(69, 13);
+            this.DateOfBirthLabel.Size = new System.Drawing.Size(75, 13);
             this.DateOfBirthLabel.TabIndex = 9;
             this.DateOfBirthLabel.Text = "Date of Birth:";
             // 
             // DateOfBirthTimePicker
             // 
+            this.DateOfBirthTimePicker.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.DateOfBirthTimePicker.Location = new System.Drawing.Point(121, 191);
             this.DateOfBirthTimePicker.Name = "DateOfBirthTimePicker";
-            this.DateOfBirthTimePicker.Size = new System.Drawing.Size(177, 20);
+            this.DateOfBirthTimePicker.Size = new System.Drawing.Size(177, 22);
             this.DateOfBirthTimePicker.TabIndex = 10;
             this.DateOfBirthTimePicker.Value = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             // 
             // VkLabel
             // 
             this.VkLabel.AutoSize = true;
+            this.VkLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.VkLabel.Location = new System.Drawing.Point(121, 220);
             this.VkLabel.Margin = new System.Windows.Forms.Padding(6, 6, 3, 0);
             this.VkLabel.Name = "VkLabel";
-            this.VkLabel.Size = new System.Drawing.Size(24, 13);
+            this.VkLabel.Size = new System.Drawing.Size(23, 13);
             this.VkLabel.TabIndex = 12;
             this.VkLabel.Text = "VK:";
             // 
             // VkTextBox
             // 
+            this.VkTextBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.VkTextBox.Location = new System.Drawing.Point(121, 239);
             this.VkTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.VkTextBox.Name = "VkTextBox";
-            this.VkTextBox.Size = new System.Drawing.Size(177, 20);
+            this.VkTextBox.Size = new System.Drawing.Size(177, 22);
             this.VkTextBox.TabIndex = 11;
             // 
             // OkButton
