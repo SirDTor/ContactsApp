@@ -19,12 +19,22 @@ namespace ContactsApp.View
 
         private void label6_Click(object sender, EventArgs e)
         {
-
+            
         }
 
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void iconLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            System.Diagnostics.Process.Start("https://icons8.com");
+        }
 
+        private void OkAboutButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void gitLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/SirDTor");
         }
     }
 }

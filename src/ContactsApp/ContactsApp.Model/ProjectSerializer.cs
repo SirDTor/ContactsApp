@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ContactsApp.Model
 {
-    internal class ProjectClass
+    internal class ProjectSerializer
     {
     }
 }

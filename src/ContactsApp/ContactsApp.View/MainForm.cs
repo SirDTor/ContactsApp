@@ -107,6 +107,13 @@ namespace ContactsApp.View
         private void BirthdayPanelCloseButton_Click(object sender, EventArgs e)
         {
             BirthdayPanel.Visible = false;
+            panelUp.Visible = true;
+        }
+
+        private void panelUpPictureBox_Click(object sender, EventArgs e)
+        {
+            panelUp.Visible = false;
+            BirthdayPanel.Visible = true;
         }
     }
 }
