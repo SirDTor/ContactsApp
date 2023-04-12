@@ -208,8 +208,8 @@
             "Вдовин Константин",
             "Владимирова Алиса ",
             "Волошин Артём ",
-            "Герасимова София ",
             "Герасимова Полина ",
+            "Герасимова София ",
             "Гончаров Максим ",
             "Григорьева Василиса ",
             "Гуляев Егор ",
@@ -233,6 +233,7 @@
             this.ContactsListBox.Margin = new System.Windows.Forms.Padding(6);
             this.ContactsListBox.Name = "ContactsListBox";
             this.ContactsListBox.Size = new System.Drawing.Size(238, 463);
+            this.ContactsListBox.Sorted = true;
             this.ContactsListBox.TabIndex = 2;
             // 
             // ContactsInfoPanel

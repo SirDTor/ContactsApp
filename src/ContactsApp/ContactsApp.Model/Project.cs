@@ -10,7 +10,7 @@ namespace ContactsApp.Model
     /// <summary>
     /// Описывает список контактов
     /// </summary>
-    internal class Project
+    public class Project
     {
         /// <summary>
         /// Возвращает или задает список контактов
@@ -35,7 +35,7 @@ namespace ContactsApp.Model
         /// </summary>
         /// <param name="contact"></param>
         /// <returns></returns>
-        public List<Contact> FindBirhdayContact(List<Contact> contact) 
+        public List<Contact> FindBirhdayContact(List<Contact> contact)
         {
             var selectedContact = from p in contact
                                   where p.DateOfBirth == DateTime.Now
@@ -48,7 +48,7 @@ namespace ContactsApp.Model
         /// </summary>
         /// <param name="contact"></param>
         /// <returns></returns>
-        public List<Contact> FindContact(List<Contact> contact) 
+        public List<Contact> FindContact(List<Contact> contact)
         {
             string contactToFind = "Зорин";
             var selectedContact = from p in contact
