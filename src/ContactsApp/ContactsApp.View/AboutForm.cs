@@ -36,5 +36,10 @@ namespace ContactsApp.View
         {
             System.Diagnostics.Process.Start("https://github.com/SirDTor");
         }
+
+        private void licenceTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 }

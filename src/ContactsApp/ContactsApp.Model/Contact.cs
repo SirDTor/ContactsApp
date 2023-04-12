@@ -135,9 +135,14 @@ namespace ContactsApp.Model
             }
         }
 
-        ///  <summary>
+        /// <summary>
         /// Создает экземпляр <see cref="Contact">
         /// </summary>
+        /// <param name="fullName"></param>
+        /// <param name="email"></param>
+        /// <param name="phone"></param>
+        /// <param name="dateOfBirth"></param>
+        /// <param name="idVk"></param>
         public Contact(string fullName, string email, string phone, DateTime dateOfBirth, string idVk)
         {
             FullName = fullName;

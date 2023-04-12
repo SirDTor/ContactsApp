@@ -13,7 +13,7 @@ namespace ContactsApp.Model
     internal class Project
     {
         /// <summary>
-        ///  Возвращает или задает список контактов
+        /// Возвращает или задает список контактов
         /// </summary>
         public List<Contact> Contacts { get; set; } = new List<Contact>();
 
@@ -22,12 +22,12 @@ namespace ContactsApp.Model
         /// </summary>
         /// <param name="contact"></param>
         /// <returns></returns>
-        /// <exception cref="ArgumentException"></exception>
-        public string SortContactsByFullName(Contact contact)
+        public List<Contact> SortContactsBySurname(List<Contact> contact)
         {
-            if (contact is null) throw new ArgumentException("Некорректное значение параметра");
-            //return contact.FullName.CompareTo(contact.FullName);
-            return contact.FullName;
+            var selectedContact = from p in contact
+                                  orderby p.FullName
+                                  select p.FullName;
+            return (List<Contact>)selectedContact;
         }
 
         /// <summary>
@@ -35,14 +35,27 @@ namespace ContactsApp.Model
         /// </summary>
         /// <param name="contact"></param>
         /// <returns></returns>
-        public string FindBirhdayContact(Contact contact) { return contact.FullName; }
+        public List<Contact> FindBirhdayContact(List<Contact> contact) 
+        {
+            var selectedContact = from p in contact
+                                  where p.DateOfBirth == DateTime.Now
+                                  select p;
+            return (List<Contact>)selectedContact;
+        }
 
         /// <summary>
         /// Возвращает найденные по подстроке контакты
         /// </summary>
         /// <param name="contact"></param>
         /// <returns></returns>
-        public string FindContact(Contact contact) { return contact.FullName; }
+        public List<Contact> FindContact(List<Contact> contact) 
+        {
+            string contactToFind = "Зорин";
+            var selectedContact = from p in contact
+                                  where p.FullName == contactToFind
+                                  select p;
+            return (List<Contact>)selectedContact;
+        }
     }
 }
 

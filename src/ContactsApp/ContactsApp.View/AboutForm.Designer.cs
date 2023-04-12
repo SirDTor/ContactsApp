@@ -29,232 +29,235 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutForm));
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.iconLinkLabel = new System.Windows.Forms.LinkLabel();
-            this.gitLinkLabel = new System.Windows.Forms.LinkLabel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.CommonPanel = new System.Windows.Forms.Panel();
+            this.IconLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.GitLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.LicenceTextBox = new System.Windows.Forms.TextBox();
             this.AboutPanel = new System.Windows.Forms.Panel();
             this.OkAboutButton = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.MyEmailLabel = new System.Windows.Forms.Label();
+            this.NameLabel = new System.Windows.Forms.Label();
+            this.SourceLabel = new System.Windows.Forms.Label();
+            this.GitLabel = new System.Windows.Forms.Label();
+            this.EmailLabel = new System.Windows.Forms.Label();
+            this.AuthorLabel = new System.Windows.Forms.Label();
+            this.VersionLabel = new System.Windows.Forms.Label();
+            this.ContactsAppLabel = new System.Windows.Forms.Label();
+            this.TableLayoutPanel1.SuspendLayout();
+            this.CommonPanel.SuspendLayout();
             this.AboutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // TableLayoutPanel1
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(685, 494);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.TableLayoutPanel1.BackColor = System.Drawing.Color.White;
+            this.TableLayoutPanel1.ColumnCount = 1;
+            this.TableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TableLayoutPanel1.Controls.Add(this.CommonPanel, 0, 0);
+            this.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.TableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.TableLayoutPanel1.Name = "TableLayoutPanel1";
+            this.TableLayoutPanel1.RowCount = 1;
+            this.TableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TableLayoutPanel1.Size = new System.Drawing.Size(553, 401);
+            this.TableLayoutPanel1.TabIndex = 0;
             // 
-            // panel1
+            // CommonPanel
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.iconLinkLabel);
-            this.panel1.Controls.Add(this.gitLinkLabel);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.AboutPanel);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(685, 494);
-            this.panel1.TabIndex = 0;
+            this.CommonPanel.BackColor = System.Drawing.Color.White;
+            this.CommonPanel.Controls.Add(this.IconLinkLabel);
+            this.CommonPanel.Controls.Add(this.GitLinkLabel);
+            this.CommonPanel.Controls.Add(this.LicenceTextBox);
+            this.CommonPanel.Controls.Add(this.AboutPanel);
+            this.CommonPanel.Controls.Add(this.MyEmailLabel);
+            this.CommonPanel.Controls.Add(this.NameLabel);
+            this.CommonPanel.Controls.Add(this.SourceLabel);
+            this.CommonPanel.Controls.Add(this.GitLabel);
+            this.CommonPanel.Controls.Add(this.EmailLabel);
+            this.CommonPanel.Controls.Add(this.AuthorLabel);
+            this.CommonPanel.Controls.Add(this.VersionLabel);
+            this.CommonPanel.Controls.Add(this.ContactsAppLabel);
+            this.CommonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CommonPanel.Location = new System.Drawing.Point(0, 0);
+            this.CommonPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.CommonPanel.Name = "CommonPanel";
+            this.CommonPanel.Size = new System.Drawing.Size(553, 401);
+            this.CommonPanel.TabIndex = 0;
             // 
-            // iconLinkLabel
+            // IconLinkLabel
             // 
-            this.iconLinkLabel.ActiveLinkColor = System.Drawing.Color.Blue;
-            this.iconLinkLabel.AutoSize = true;
-            this.iconLinkLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.iconLinkLabel.LinkVisited = true;
-            this.iconLinkLabel.Location = new System.Drawing.Point(215, 404);
-            this.iconLinkLabel.Margin = new System.Windows.Forms.Padding(1);
-            this.iconLinkLabel.Name = "iconLinkLabel";
-            this.iconLinkLabel.Size = new System.Drawing.Size(64, 13);
-            this.iconLinkLabel.TabIndex = 12;
-            this.iconLinkLabel.TabStop = true;
-            this.iconLinkLabel.Text = "icons8.com";
-            this.iconLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.iconLinkLabel_LinkClicked);
+            this.IconLinkLabel.ActiveLinkColor = System.Drawing.Color.Blue;
+            this.IconLinkLabel.AutoSize = true;
+            this.IconLinkLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.IconLinkLabel.LinkVisited = true;
+            this.IconLinkLabel.Location = new System.Drawing.Point(210, 328);
+            this.IconLinkLabel.Margin = new System.Windows.Forms.Padding(1);
+            this.IconLinkLabel.Name = "IconLinkLabel";
+            this.IconLinkLabel.Size = new System.Drawing.Size(64, 13);
+            this.IconLinkLabel.TabIndex = 12;
+            this.IconLinkLabel.TabStop = true;
+            this.IconLinkLabel.Text = "icons8.com";
+            this.IconLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.iconLinkLabel_LinkClicked);
             // 
-            // gitLinkLabel
+            // GitLinkLabel
             // 
-            this.gitLinkLabel.ActiveLinkColor = System.Drawing.Color.Blue;
-            this.gitLinkLabel.AutoSize = true;
-            this.gitLinkLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.gitLinkLabel.LinkVisited = true;
-            this.gitLinkLabel.Location = new System.Drawing.Point(168, 183);
-            this.gitLinkLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.gitLinkLabel.Name = "gitLinkLabel";
-            this.gitLinkLabel.Size = new System.Drawing.Size(162, 17);
-            this.gitLinkLabel.TabIndex = 11;
-            this.gitLinkLabel.TabStop = true;
-            this.gitLinkLabel.Text = "https://github.com/SirDTor";
-            this.gitLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.gitLinkLabel_LinkClicked);
+            this.GitLinkLabel.ActiveLinkColor = System.Drawing.Color.Blue;
+            this.GitLinkLabel.AutoSize = true;
+            this.GitLinkLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.GitLinkLabel.LinkVisited = true;
+            this.GitLinkLabel.Location = new System.Drawing.Point(126, 149);
+            this.GitLinkLabel.Name = "GitLinkLabel";
+            this.GitLinkLabel.Size = new System.Drawing.Size(162, 17);
+            this.GitLinkLabel.TabIndex = 11;
+            this.GitLinkLabel.TabStop = true;
+            this.GitLinkLabel.Text = "https://github.com/SirDTor";
+            this.GitLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.gitLinkLabel_LinkClicked);
             // 
-            // textBox1
+            // LicenceTextBox
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(16, 222);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(16, 22, 16, 4);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(652, 176);
-            this.textBox1.TabIndex = 10;
-            this.textBox1.Text = resources.GetString("textBox1.Text");
+            this.LicenceTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LicenceTextBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LicenceTextBox.Location = new System.Drawing.Point(12, 180);
+            this.LicenceTextBox.Margin = new System.Windows.Forms.Padding(12, 18, 12, 3);
+            this.LicenceTextBox.Multiline = true;
+            this.LicenceTextBox.Name = "LicenceTextBox";
+            this.LicenceTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.LicenceTextBox.Size = new System.Drawing.Size(529, 144);
+            this.LicenceTextBox.TabIndex = 10;
+            this.LicenceTextBox.Text = resources.GetString("LicenceTextBox.Text");
+            this.LicenceTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.licenceTextBox_KeyPress);
             // 
             // AboutPanel
             // 
             this.AboutPanel.BackColor = System.Drawing.Color.WhiteSmoke;
             this.AboutPanel.Controls.Add(this.OkAboutButton);
             this.AboutPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.AboutPanel.Location = new System.Drawing.Point(0, 439);
-            this.AboutPanel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.AboutPanel.Location = new System.Drawing.Point(0, 356);
+            this.AboutPanel.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.AboutPanel.Name = "AboutPanel";
-            this.AboutPanel.Size = new System.Drawing.Size(685, 55);
+            this.AboutPanel.Size = new System.Drawing.Size(553, 45);
             this.AboutPanel.TabIndex = 9;
             // 
             // OkAboutButton
             // 
+            this.OkAboutButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.OkAboutButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.OkAboutButton.Location = new System.Drawing.Point(561, 15);
-            this.OkAboutButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 12);
+            this.OkAboutButton.Location = new System.Drawing.Point(466, 12);
+            this.OkAboutButton.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
             this.OkAboutButton.Name = "OkAboutButton";
-            this.OkAboutButton.Size = new System.Drawing.Size(100, 28);
+            this.OkAboutButton.Size = new System.Drawing.Size(75, 23);
             this.OkAboutButton.TabIndex = 0;
             this.OkAboutButton.Text = "OK";
             this.OkAboutButton.UseVisualStyleBackColor = true;
             this.OkAboutButton.Click += new System.EventHandler(this.OkAboutButton_Click);
             // 
-            // label9
+            // MyEmailLabel
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(168, 155);
-            this.label9.Margin = new System.Windows.Forms.Padding(93, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(171, 17);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "daniil.zorin.leon@gmail.com";
+            this.MyEmailLabel.AutoSize = true;
+            this.MyEmailLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.MyEmailLabel.Location = new System.Drawing.Point(126, 126);
+            this.MyEmailLabel.Margin = new System.Windows.Forms.Padding(70, 0, 3, 0);
+            this.MyEmailLabel.Name = "MyEmailLabel";
+            this.MyEmailLabel.Size = new System.Drawing.Size(171, 17);
+            this.MyEmailLabel.TabIndex = 8;
+            this.MyEmailLabel.Text = "daniil.zorin.leon@gmail.com";
             // 
-            // label8
+            // NameLabel
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(168, 127);
-            this.label8.Margin = new System.Windows.Forms.Padding(93, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(74, 17);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Zorin Daniil";
+            this.NameLabel.AutoSize = true;
+            this.NameLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.NameLabel.Location = new System.Drawing.Point(126, 103);
+            this.NameLabel.Margin = new System.Windows.Forms.Padding(70, 0, 3, 0);
+            this.NameLabel.Name = "NameLabel";
+            this.NameLabel.Size = new System.Drawing.Size(74, 17);
+            this.NameLabel.TabIndex = 7;
+            this.NameLabel.Text = "Zorin Daniil";
             // 
-            // label6
+            // SourceLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(17, 404);
-            this.label6.Margin = new System.Windows.Forms.Padding(16, 0, 0, 18);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(202, 13);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "All used images are downloaded from";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.SourceLabel.AutoSize = true;
+            this.SourceLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SourceLabel.Location = new System.Drawing.Point(13, 328);
+            this.SourceLabel.Margin = new System.Windows.Forms.Padding(12, 0, 0, 15);
+            this.SourceLabel.Name = "SourceLabel";
+            this.SourceLabel.Size = new System.Drawing.Size(202, 13);
+            this.SourceLabel.TabIndex = 5;
+            this.SourceLabel.Text = "All used images are downloaded from";
+            this.SourceLabel.Click += new System.EventHandler(this.label6_Click);
             // 
-            // label5
+            // GitLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(16, 183);
-            this.label5.Margin = new System.Windows.Forms.Padding(16, 12, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 17);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Github:";
+            this.GitLabel.AutoSize = true;
+            this.GitLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.GitLabel.Location = new System.Drawing.Point(12, 149);
+            this.GitLabel.Margin = new System.Windows.Forms.Padding(12, 10, 3, 0);
+            this.GitLabel.Name = "GitLabel";
+            this.GitLabel.Size = new System.Drawing.Size(49, 17);
+            this.GitLabel.TabIndex = 4;
+            this.GitLabel.Text = "Github:";
             // 
-            // label4
+            // EmailLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(16, 155);
-            this.label4.Margin = new System.Windows.Forms.Padding(16, 12, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 17);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "E-mail:";
+            this.EmailLabel.AutoSize = true;
+            this.EmailLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EmailLabel.Location = new System.Drawing.Point(12, 126);
+            this.EmailLabel.Margin = new System.Windows.Forms.Padding(12, 10, 3, 0);
+            this.EmailLabel.Name = "EmailLabel";
+            this.EmailLabel.Size = new System.Drawing.Size(47, 17);
+            this.EmailLabel.TabIndex = 3;
+            this.EmailLabel.Text = "E-mail:";
             // 
-            // label3
+            // AuthorLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(16, 127);
-            this.label3.Margin = new System.Windows.Forms.Padding(16, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 17);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Author:";
+            this.AuthorLabel.AutoSize = true;
+            this.AuthorLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AuthorLabel.Location = new System.Drawing.Point(12, 103);
+            this.AuthorLabel.Margin = new System.Windows.Forms.Padding(12, 0, 3, 0);
+            this.AuthorLabel.Name = "AuthorLabel";
+            this.AuthorLabel.Size = new System.Drawing.Size(50, 17);
+            this.AuthorLabel.TabIndex = 2;
+            this.AuthorLabel.Text = "Author:";
             // 
-            // label2
+            // VersionLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(17, 82);
-            this.label2.Margin = new System.Windows.Forms.Padding(16, 7, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 17);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "v1.0";
+            this.VersionLabel.AutoSize = true;
+            this.VersionLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.VersionLabel.Location = new System.Drawing.Point(13, 67);
+            this.VersionLabel.Margin = new System.Windows.Forms.Padding(12, 6, 3, 0);
+            this.VersionLabel.Name = "VersionLabel";
+            this.VersionLabel.Size = new System.Drawing.Size(31, 17);
+            this.VersionLabel.TabIndex = 1;
+            this.VersionLabel.Text = "v1.0";
             // 
-            // label1
+            // ContactsAppLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(12, 43);
-            this.label1.Margin = new System.Windows.Forms.Padding(16, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(160, 32);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "ContactsApp";
+            this.ContactsAppLabel.AutoSize = true;
+            this.ContactsAppLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ContactsAppLabel.Location = new System.Drawing.Point(9, 35);
+            this.ContactsAppLabel.Margin = new System.Windows.Forms.Padding(12, 0, 3, 0);
+            this.ContactsAppLabel.Name = "ContactsAppLabel";
+            this.ContactsAppLabel.Size = new System.Drawing.Size(160, 32);
+            this.ContactsAppLabel.TabIndex = 0;
+            this.ContactsAppLabel.Text = "ContactsApp";
             // 
             // AboutForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(685, 494);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.ClientSize = new System.Drawing.Size(553, 401);
+            this.Controls.Add(this.TableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "AboutForm";
             this.ShowIcon = false;
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.TableLayoutPanel1.ResumeLayout(false);
+            this.CommonPanel.ResumeLayout(false);
+            this.CommonPanel.PerformLayout();
             this.AboutPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -262,20 +265,20 @@
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TableLayoutPanel TableLayoutPanel1;
+        private System.Windows.Forms.Panel CommonPanel;
+        private System.Windows.Forms.Label ContactsAppLabel;
+        private System.Windows.Forms.Label MyEmailLabel;
+        private System.Windows.Forms.Label NameLabel;
+        private System.Windows.Forms.Label SourceLabel;
+        private System.Windows.Forms.Label GitLabel;
+        private System.Windows.Forms.Label EmailLabel;
+        private System.Windows.Forms.Label AuthorLabel;
+        private System.Windows.Forms.Label VersionLabel;
         private System.Windows.Forms.Panel AboutPanel;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox LicenceTextBox;
         private System.Windows.Forms.Button OkAboutButton;
-        private System.Windows.Forms.LinkLabel gitLinkLabel;
-        private System.Windows.Forms.LinkLabel iconLinkLabel;
+        private System.Windows.Forms.LinkLabel GitLinkLabel;
+        private System.Windows.Forms.LinkLabel IconLinkLabel;
     }
 }
