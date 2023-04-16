@@ -20,12 +20,12 @@ namespace ContactsApp.View
         private Project _project;
 
         /// <summary>
-        /// 
+        /// Переменная для генерации рандомного числа
         /// </summary>
         Random rng = new Random();
 
         /// <summary>
-        /// 
+        /// Метод по обновлению списка контактов
         /// </summary>
         private void UpdateListBox()
         {
@@ -38,7 +38,7 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// 
+        /// Метод добавляющий контакт в список
         /// </summary>
         private void AddContact()
         {
@@ -64,7 +64,7 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// 
+        /// Метод генерации рандомного числа
         /// </summary>
         /// <param name="rng"></param>
         /// <returns></returns>
@@ -74,7 +74,7 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// 
+        /// Метод удаления контакта из списка
         /// </summary>
         /// <param name="index"></param>
         private void RemoveContact(int index)
@@ -93,7 +93,7 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// 
+        /// Метод обновления данных о контакте в правой панели программы
         /// </summary>
         /// <param name="index"></param>
         private void UpdateSelectedContact(int index)
@@ -105,6 +105,9 @@ namespace ContactsApp.View
             VkTextbox.Text = _project.Contacts[index].IdVk;
         }
 
+        /// <summary>
+        /// Метод очистки данных о контакте в правой панели программы
+        /// </summary>
         private void ClearSelectedContact()
         {
             FullNameTextBox.Text = null;
@@ -113,8 +116,6 @@ namespace ContactsApp.View
             DateOfBirthTextBox.Text = null;
             VkTextbox.Text = null;
         }
-
-
 
         public MainForm()
         {
@@ -130,6 +131,7 @@ namespace ContactsApp.View
             AddForm.ShowDialog();
 
         }
+
         private void EditContactPictureBox_Click(object sender, EventArgs e)
         {
             var EditForm = new ContactForm();
