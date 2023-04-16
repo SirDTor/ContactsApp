@@ -121,6 +121,7 @@
             this.VkTextBox.Name = "VkTextBox";
             this.VkTextBox.Size = new System.Drawing.Size(177, 22);
             this.VkTextBox.TabIndex = 11;
+            this.VkTextBox.TextChanged += new System.EventHandler(this.VkTextBox_TextChanged);
             // 
             // DateOfBirthTimePicker
             // 
@@ -132,6 +133,7 @@
             this.DateOfBirthTimePicker.Size = new System.Drawing.Size(177, 22);
             this.DateOfBirthTimePicker.TabIndex = 10;
             this.DateOfBirthTimePicker.Value = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
+            this.DateOfBirthTimePicker.ValueChanged += new System.EventHandler(this.DateOfBirthTimePicker_ValueChanged);
             // 
             // DateOfBirthLabel
             // 
@@ -163,7 +165,8 @@
             this.PhoneNumberTextBox.Name = "PhoneNumberTextBox";
             this.PhoneNumberTextBox.Size = new System.Drawing.Size(177, 22);
             this.PhoneNumberTextBox.TabIndex = 6;
-            this.PhoneNumberTextBox.Text = "+7 (000) 000-00-00";
+            this.PhoneNumberTextBox.TextChanged += new System.EventHandler(this.PhoneNumberTextBox_TextChanged);
+            this.PhoneNumberTextBox.Leave += new System.EventHandler(this.PhoneNumberTextBox_Leave);
             // 
             // EmailLabel
             // 
@@ -184,7 +187,7 @@
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.Size = new System.Drawing.Size(384, 22);
             this.EmailTextBox.TabIndex = 4;
-            this.EmailTextBox.Text = "abakumov@no.mail";
+            this.EmailTextBox.TextChanged += new System.EventHandler(this.EmailTextBox_TextChanged);
             // 
             // FulNamelabel
             // 
@@ -205,7 +208,7 @@
             this.FullNameTextBox.Name = "FullNameTextBox";
             this.FullNameTextBox.Size = new System.Drawing.Size(384, 22);
             this.FullNameTextBox.TabIndex = 2;
-            this.FullNameTextBox.Text = "Абакумов Владимир";
+            this.FullNameTextBox.TextChanged += new System.EventHandler(this.FullNameTextBox_TextChanged);
             // 
             // ContactPictureBox
             // 

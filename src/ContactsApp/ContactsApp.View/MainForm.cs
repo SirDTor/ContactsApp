@@ -17,7 +17,7 @@ namespace ContactsApp.View
         /// <summary>
         /// Поле класса Project 
         /// </summary>
-        private Project _project;
+        private Project _project = new Project();
 
         /// <summary>
         /// Переменная для генерации рандомного числа
@@ -42,7 +42,7 @@ namespace ContactsApp.View
         /// </summary>
         private void AddContact()
         {
-            _project = new Project();
+            
             string[] arrContactName = { "ЗоРиН", "ГавРилов", "КурБанов", "базкен", "кочетов" };
             string[] arrContactEmail = { "dannl@gmail.com", "zordl@mail.ru", "petsp@no.mail", "test@mail.ru", "asdas@mail.ru" };
             string[] arrContactPhone = { "89234427925", "7(495)733-26-31", "7(495)840-47-17", "7(495)467-21-28", "7(495)859-56-70" };

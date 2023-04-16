@@ -51,12 +51,11 @@ namespace ContactsApp.Model
             }
             set
             {
-                if (value.ToString().Length >= 100)
+                if (value.Length >= 100)
                 {
-                    throw new ArgumentException($"Contact name must be less than {_fullName.Length}");
+                    throw new ArgumentException($"Contact name must be less than 100, value = {_fullName.Length}");
                 }
                 TextInfo ti = CultureInfo.CurrentCulture.TextInfo;
-                //_fullName = value;
                 _fullName = ti.ToTitleCase(value).ToString();
             }
         }
@@ -72,9 +71,9 @@ namespace ContactsApp.Model
             }
             set
             {
-                if (value.ToString().Length >= 100)
+                if (value.Length >= 100)
                 {
-                    throw new ArgumentException($"Contact email must be less than {_email.Length}");
+                    throw new ArgumentException($"Contact email must be less than 100, value = {_email.Length}");
                 }
                 _email = value;
             }
@@ -91,8 +90,8 @@ namespace ContactsApp.Model
             }
             set
             {
-                string PhoneNumberValidationMask = @"^((\+7|7|8)[\(]?(\d{3})[\)]?\d{3}[-]?(\d{2}[-]?\d{2}))$";
-                if (!Regex.IsMatch(value.ToString(), PhoneNumberValidationMask))
+                string PhoneNumberValidationMask = @"^((\+7|7|8)[[\(]?(\d{3})[\)]?]?\d{3}[[-]?(\d{2}[-]?]?\d{2}))$";
+                if (!Regex.IsMatch(value, PhoneNumberValidationMask))
                 {
                     throw new ArgumentException($"The phone number contains an invalid character.");
                 }
@@ -130,9 +129,9 @@ namespace ContactsApp.Model
             }
             set
             {
-                if (value.ToString().Length >= 50)
+                if (value.Length >= 50)
                 {
-                    throw new ArgumentException($"Contact ID must be less than {_idVk.Length}");
+                    throw new ArgumentException($"Contact ID must be less than 50, value = {_idVk.Length}");
                 }
                 _idVk = value;
             }
@@ -154,6 +153,11 @@ namespace ContactsApp.Model
             DateOfBirth = dateOfBirth;
             IdVk = idVk;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Contact() { }
 
         /// <summary>
         /// Клонирует экзмепляр класса
