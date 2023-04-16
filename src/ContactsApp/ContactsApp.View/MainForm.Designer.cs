@@ -233,8 +233,8 @@
             this.ContactsListBox.Margin = new System.Windows.Forms.Padding(6);
             this.ContactsListBox.Name = "ContactsListBox";
             this.ContactsListBox.Size = new System.Drawing.Size(238, 463);
-            this.ContactsListBox.Sorted = true;
             this.ContactsListBox.TabIndex = 2;
+            this.ContactsListBox.SelectedIndexChanged += new System.EventHandler(this.ContactsListBox_SelectedIndexChanged);
             // 
             // ContactsInfoPanel
             // 
@@ -467,6 +467,7 @@
             this.MinimumSize = new System.Drawing.Size(600, 300);
             this.Name = "MainForm";
             this.Text = "ContactsApp";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyUp);
             this.MainContactsTableLayoutPanel.ResumeLayout(false);
             this.ContactsPanel.ResumeLayout(false);
