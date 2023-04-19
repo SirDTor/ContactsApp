@@ -110,7 +110,7 @@ namespace ContactsApp.Model
             }
             set
             {
-                if (_dateOfBirth.Year <= 1900 && _dateOfBirth.Year > 2023)
+                if (value.Year <= 1900 || value > DateTime.Today)
                 {
                     throw new ArgumentException($"Year must be less or more than current year" + $"But was {_dateOfBirth.Year}");
                 }
@@ -155,7 +155,7 @@ namespace ContactsApp.Model
         }
 
         /// <summary>
-        /// 
+        /// Создает пустой экземпляр <see cref="Contact"/>
         /// </summary>
         public Contact() { }
 

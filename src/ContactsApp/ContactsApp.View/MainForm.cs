@@ -49,15 +49,15 @@ namespace ContactsApp.View
             string[] arrContactIdVk = { "@123412", "@sirdktor", "@test", "@id12312", "@00000" };
 
 
-            var listContact = new List<Contact>();
+            //var listContact = new List<Contact>();
             int randomContact;
 
             for (int i = 0; i < 6; i++)
             {
                 randomContact = GenerateDigit(rng);
                 Contact contact = new Contact(arrContactName[randomContact], arrContactEmail[randomContact],
-                    arrContactPhone[randomContact], DateTime.Now, arrContactIdVk[randomContact]);
-                listContact.Add(contact);
+                    arrContactPhone[randomContact], DateTime.Today, arrContactIdVk[randomContact]);
+                //listContact.Add(contact);
                 _project.Contacts.Add(contact);
             }
             //_project.Contacts.AddRange(listContact);

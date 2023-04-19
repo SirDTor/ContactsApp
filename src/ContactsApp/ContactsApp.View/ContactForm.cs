@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Contracts;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,44 +15,45 @@ namespace ContactsApp.View
     public partial class ContactForm : Form
     {
         /// <summary>
-        /// 
+        /// Поле класса Contact
         /// </summary>
         private Contact _contact = new Contact();
 
         /// <summary>
-        /// 
+        /// строка хранаящая ошибку ФИО
         /// </summary>
         private string _fullNameError;
 
         /// <summary>
-        /// 
+        /// строка хранаящая ошибку email
         /// </summary>
         private string _emailError;
 
         /// <summary>
-        /// 
+        /// строка хранаящая ошибку номера телефона
         /// </summary>
         private string _phoneError;
 
         /// <summary>
-        /// 
+        /// строка хранаящая ошибку даты
         /// </summary>
         private string _dateError;
 
         /// <summary>
-        /// 
+        /// строка хранаящая ошибку idVK
         /// </summary>
         private string _idVkError;
 
         public ContactForm()
         {
             InitializeComponent();
-            _contact.DateOfBirth = new DateTime (2000,1,1);
+            _contact = new Contact("ЗорИн", "test@mail.ru", "89234427925",
+            new DateTime(2000, 1, 1), "@sirdktor");
             UpdateForm();
         }
 
         /// <summary>
-        /// 
+        /// Метод обновляющий текстовые поля
         /// </summary>
         private void UpdateForm()
         {
@@ -63,7 +65,7 @@ namespace ContactsApp.View
         } 
 
         /// <summary>
-        /// 
+        /// Метод возвращает false если в веденных данных есть ошибка
         /// </summary>
         /// <returns></returns>
         private bool CheckFormOnErrors()
@@ -81,12 +83,10 @@ namespace ContactsApp.View
                 return false;
             }
             else return true;
-            
-
         }
 
         /// <summary>
-        /// 
+        /// Метод обновляющий данные класса Contact
         /// </summary>
         private void UpdateContact()
         {
@@ -116,7 +116,7 @@ namespace ContactsApp.View
 
         private void OkButton_Click(object sender, EventArgs e)
         {
-            CheckFormOnErrors();
+            if (CheckFormOnErrors())
             UpdateContact();
         }
 
@@ -126,7 +126,7 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// 
+        /// Валидация данных ФИО
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -148,7 +148,7 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// 
+        /// Валидация данных email
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -170,32 +170,7 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        /// <exception cref="ArgumentException"></exception>
-        private void PhoneNumberTextBox_TextChanged(object sender, EventArgs e)
-        {
-            //if (PhoneNumberTextBox.TextLength == 11)
-            //{
-            //    try
-            //    {
-            //        _contact.Phone = PhoneNumberTextBox.Text;
-            //        _phoneError = null;
-            //        PhoneNumberTextBox.BackColor = Color.White;
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        _phoneError = ex.Message;
-            //        PhoneNumberTextBox.BackColor = Color.LightPink;
-            //        throw new ArgumentException(ex.Message);
-            //    }
-            //}
-        }
-
-        /// <summary>
-        /// 
+        /// Валидация данных даты рождения
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -206,18 +181,18 @@ namespace ContactsApp.View
             { 
                 _contact.DateOfBirth = DateOfBirthTimePicker.Value;
                 _dateError = null;
-                DateOfBirthTimePicker.BackColor = Color.White;
+                DateOfBirthTimePicker.CalendarForeColor = Color.White;
             }
             catch (Exception ex)
             {
                 _dateError = ex.Message;
-                DateOfBirthTimePicker.BackColor = Color.LightPink;
+                DateOfBirthTimePicker.CalendarForeColor = Color.LightPink;
                 throw new ArgumentException(ex.Message);
             }
         }
 
         /// <summary>
-        /// 
+        /// Валидация данных idVK
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -238,6 +213,12 @@ namespace ContactsApp.View
             }
         }
 
+        /// <summary>
+        /// Валидация данных номера телефона
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <exception cref="ArgumentException"></exception>
         private void PhoneNumberTextBox_Leave(object sender, EventArgs e)
         {
             try
@@ -250,7 +231,7 @@ namespace ContactsApp.View
             {
                 _phoneError = ex.Message;
                 PhoneNumberTextBox.BackColor = Color.LightPink;
-                throw new ArgumentException(ex.Message);
+                throw new ArgumentException(_phoneError);
             }
         }
     }
