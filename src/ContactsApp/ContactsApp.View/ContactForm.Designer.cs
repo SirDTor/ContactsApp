@@ -127,7 +127,7 @@
             // 
             this.DateOfBirthTimePicker.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.DateOfBirthTimePicker.Location = new System.Drawing.Point(121, 191);
-            this.DateOfBirthTimePicker.MaxDate = new System.DateTime(2023, 12, 31, 0, 0, 0, 0);
+            this.DateOfBirthTimePicker.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
             this.DateOfBirthTimePicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.DateOfBirthTimePicker.Name = "DateOfBirthTimePicker";
             this.DateOfBirthTimePicker.Size = new System.Drawing.Size(177, 22);
@@ -165,7 +165,6 @@
             this.PhoneNumberTextBox.Name = "PhoneNumberTextBox";
             this.PhoneNumberTextBox.Size = new System.Drawing.Size(177, 22);
             this.PhoneNumberTextBox.TabIndex = 6;
-            this.PhoneNumberTextBox.TextChanged += new System.EventHandler(this.PhoneNumberTextBox_TextChanged);
             this.PhoneNumberTextBox.Leave += new System.EventHandler(this.PhoneNumberTextBox_Leave);
             // 
             // EmailLabel

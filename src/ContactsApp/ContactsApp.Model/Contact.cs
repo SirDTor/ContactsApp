@@ -112,7 +112,7 @@ namespace ContactsApp.Model
             {
                 if (value.Year <= 1900 || value > DateTime.Today)
                 {
-                    throw new ArgumentException($"Year must be less or more than current year" + $"But was {_dateOfBirth.Year}");
+                    throw new ArgumentException($"Year must be less or more than current year " + $"But was {value.Year}");
                 }
                 _dateOfBirth = value;
             }

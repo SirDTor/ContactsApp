@@ -57,6 +57,7 @@
             this.PhotoPictureBox = new System.Windows.Forms.PictureBox();
             this.PanelUp = new System.Windows.Forms.Panel();
             this.PanelUpPictureBox = new System.Windows.Forms.PictureBox();
+            this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
             this.MainContactsTableLayoutPanel.SuspendLayout();
             this.ContactsPanel.SuspendLayout();
             this.ContactsButtonTableLayoutPanel.SuspendLayout();
@@ -519,6 +520,7 @@
         private System.Windows.Forms.Button BirthdayPanelCloseButton;
         private System.Windows.Forms.PictureBox PanelUpPictureBox;
         private System.Windows.Forms.Panel PanelUp;
+        private System.DirectoryServices.DirectoryEntry directoryEntry1;
     }
 }
 

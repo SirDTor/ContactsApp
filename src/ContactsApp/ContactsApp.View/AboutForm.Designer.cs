@@ -121,12 +121,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.LicenceTextBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LicenceTextBox.Location = new System.Drawing.Point(12, 180);
+            this.LicenceTextBox.Location = new System.Drawing.Point(12, 184);
             this.LicenceTextBox.Margin = new System.Windows.Forms.Padding(12, 18, 12, 3);
             this.LicenceTextBox.Multiline = true;
             this.LicenceTextBox.Name = "LicenceTextBox";
             this.LicenceTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.LicenceTextBox.Size = new System.Drawing.Size(529, 144);
+            this.LicenceTextBox.Size = new System.Drawing.Size(529, 140);
             this.LicenceTextBox.TabIndex = 10;
             this.LicenceTextBox.Text = resources.GetString("LicenceTextBox.Text");
             this.LicenceTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.licenceTextBox_KeyPress);
