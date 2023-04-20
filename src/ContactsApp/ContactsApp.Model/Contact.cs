@@ -115,6 +115,7 @@ namespace ContactsApp.Model
                     throw new ArgumentException($"Year must be less or more than current year " + $"But was {value.Year}");
                 }
                 _dateOfBirth = value;
+                
             }
         }
 

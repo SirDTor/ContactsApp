@@ -140,6 +140,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ContactsApp_96x96.ico" />
+    <None Include="Resources\add_random_contact_32x32_gray.png" />
+    <None Include="Resources\add_many_contacts_32x32_gray.png" />
+    <None Include="Resources\add_many_contacts_32x32.png" />
     <None Include="Resources\arrow_up_48x48.png" />
     <None Include="Resources\panel_up_32x32.png" />
   </ItemGroup>

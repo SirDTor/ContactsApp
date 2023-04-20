@@ -103,6 +103,16 @@ namespace ContactsApp.View.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_random_contact_32x32_gray {
+            get {
+                object obj = ResourceManager.GetObject("add_random_contact_32x32_gray", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap arrow_up_48x48 {
             get {
                 object obj = ResourceManager.GetObject("arrow_up_48x48", resourceCulture);

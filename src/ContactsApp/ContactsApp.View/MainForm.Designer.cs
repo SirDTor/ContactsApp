@@ -35,6 +35,7 @@
             this.RemoveContactPictureBox = new System.Windows.Forms.PictureBox();
             this.AddContactPictureBox = new System.Windows.Forms.PictureBox();
             this.EditContactPictureBox = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.FindLabel = new System.Windows.Forms.Label();
             this.FindTextBox = new System.Windows.Forms.TextBox();
             this.ContactsListBox = new System.Windows.Forms.ListBox();
@@ -64,6 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.RemoveContactPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AddContactPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EditContactPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.ContactsInfoPanel.SuspendLayout();
             this.BirthdayPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BirhdayInfoPictureBox)).BeginInit();
@@ -109,13 +111,15 @@
             // 
             this.ContactsButtonTableLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ContactsButtonTableLayoutPanel.ColumnCount = 3;
-            this.ContactsButtonTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.ContactsButtonTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.ContactsButtonTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.ContactsButtonTableLayoutPanel.ColumnCount = 4;
+            this.ContactsButtonTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.ContactsButtonTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.ContactsButtonTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.ContactsButtonTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.ContactsButtonTableLayoutPanel.Controls.Add(this.RemoveContactPictureBox, 2, 0);
             this.ContactsButtonTableLayoutPanel.Controls.Add(this.AddContactPictureBox, 0, 0);
             this.ContactsButtonTableLayoutPanel.Controls.Add(this.EditContactPictureBox, 1, 0);
+            this.ContactsButtonTableLayoutPanel.Controls.Add(this.pictureBox1, 3, 0);
             this.ContactsButtonTableLayoutPanel.Location = new System.Drawing.Point(0, 499);
             this.ContactsButtonTableLayoutPanel.Margin = new System.Windows.Forms.Padding(6);
             this.ContactsButtonTableLayoutPanel.Name = "ContactsButtonTableLayoutPanel";
@@ -128,10 +132,10 @@
             // 
             this.RemoveContactPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RemoveContactPictureBox.Image = global::ContactsApp.View.Properties.Resources.remove_contact_32x32_gray;
-            this.RemoveContactPictureBox.Location = new System.Drawing.Point(158, 0);
+            this.RemoveContactPictureBox.Location = new System.Drawing.Point(118, 0);
             this.RemoveContactPictureBox.Margin = new System.Windows.Forms.Padding(0);
             this.RemoveContactPictureBox.Name = "RemoveContactPictureBox";
-            this.RemoveContactPictureBox.Size = new System.Drawing.Size(80, 45);
+            this.RemoveContactPictureBox.Size = new System.Drawing.Size(59, 45);
             this.RemoveContactPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.RemoveContactPictureBox.TabIndex = 2;
             this.RemoveContactPictureBox.TabStop = false;
@@ -147,7 +151,7 @@
             this.AddContactPictureBox.Location = new System.Drawing.Point(0, 0);
             this.AddContactPictureBox.Margin = new System.Windows.Forms.Padding(0);
             this.AddContactPictureBox.Name = "AddContactPictureBox";
-            this.AddContactPictureBox.Size = new System.Drawing.Size(79, 45);
+            this.AddContactPictureBox.Size = new System.Drawing.Size(59, 45);
             this.AddContactPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.AddContactPictureBox.TabIndex = 0;
             this.AddContactPictureBox.TabStop = false;
@@ -159,16 +163,29 @@
             // 
             this.EditContactPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EditContactPictureBox.Image = global::ContactsApp.View.Properties.Resources.edit_contact_32x32_gray;
-            this.EditContactPictureBox.Location = new System.Drawing.Point(79, 0);
+            this.EditContactPictureBox.Location = new System.Drawing.Point(59, 0);
             this.EditContactPictureBox.Margin = new System.Windows.Forms.Padding(0);
             this.EditContactPictureBox.Name = "EditContactPictureBox";
-            this.EditContactPictureBox.Size = new System.Drawing.Size(79, 45);
+            this.EditContactPictureBox.Size = new System.Drawing.Size(59, 45);
             this.EditContactPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.EditContactPictureBox.TabIndex = 1;
             this.EditContactPictureBox.TabStop = false;
             this.EditContactPictureBox.Click += new System.EventHandler(this.EditContactPictureBox_Click);
             this.EditContactPictureBox.MouseEnter += new System.EventHandler(this.EditContactPictureBox_MouseEnter);
             this.EditContactPictureBox.MouseLeave += new System.EventHandler(this.EditContactPictureBox_MouseLeave);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::ContactsApp.View.Properties.Resources.add_random_contact_32x32_gray;
+            this.pictureBox1.Location = new System.Drawing.Point(177, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(61, 45);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // FindLabel
             // 
@@ -478,6 +495,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.RemoveContactPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AddContactPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EditContactPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ContactsInfoPanel.ResumeLayout(false);
             this.ContactsInfoPanel.PerformLayout();
             this.BirthdayPanel.ResumeLayout(false);
@@ -521,6 +539,7 @@
         private System.Windows.Forms.PictureBox PanelUpPictureBox;
         private System.Windows.Forms.Panel PanelUp;
         private System.DirectoryServices.DirectoryEntry directoryEntry1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

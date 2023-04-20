@@ -17,7 +17,21 @@ namespace ContactsApp.View
         /// <summary>
         /// Поле класса Contact
         /// </summary>
-        private Contact _contact = new Contact();
+        private Contact _contact = new Contact("", "", "89234427925",
+            new DateTime(2000, 1, 1), "");
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Contact Contact
+        {
+            get => _contact;
+            set 
+            { 
+                _contact = value;
+                UpdateForm();
+            }
+        }
 
         /// <summary>
         /// строка хранаящая ошибку ФИО
@@ -47,8 +61,6 @@ namespace ContactsApp.View
         public ContactForm()
         {
             InitializeComponent();
-            _contact = new Contact("ЗорИн", "test@mail.ru", "89234427925",
-            new DateTime(2000, 1, 1), "@sirdktor");
             UpdateForm();
         }
 
@@ -62,7 +74,8 @@ namespace ContactsApp.View
             PhoneNumberTextBox.Text = _contact.Phone;
             DateOfBirthTimePicker.Value = _contact.DateOfBirth;
             VkTextBox.Text = _contact.IdVk;
-        } 
+
+        }
 
         /// <summary>
         /// Метод возвращает false если в веденных данных есть ошибка
@@ -78,7 +91,7 @@ namespace ContactsApp.View
             strError += _idVkError;
             if (strError != null && strError != "")
             {
-                MessageBox.Show($"{_fullNameError}\n{_emailError}\n{_phoneError}\n{_dateError}\n{_idVkError}", 
+                MessageBox.Show($"{_fullNameError}\n{_emailError}\n{_phoneError}\n{_dateError}\n{_idVkError}",
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
@@ -111,13 +124,18 @@ namespace ContactsApp.View
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
+            DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
         private void OkButton_Click(object sender, EventArgs e)
         {
+            DialogResult = DialogResult.OK;
             if (CheckFormOnErrors())
-            UpdateContact();
+            {
+                UpdateContact();
+                this.Close();
+            }
         }
 
         private void AddPhotoPictureBox_Click(object sender, EventArgs e)
@@ -177,8 +195,8 @@ namespace ContactsApp.View
         /// <exception cref="ArgumentException"></exception>
         private void DateOfBirthTimePicker_ValueChanged(object sender, EventArgs e)
         {
-            try 
-            { 
+            try
+            {
                 _contact.DateOfBirth = DateOfBirthTimePicker.Value;
                 _dateError = null;
                 DateOfBirthTimePicker.CalendarForeColor = Color.White;
@@ -199,8 +217,8 @@ namespace ContactsApp.View
         /// <exception cref="ArgumentException"></exception>
         private void VkTextBox_TextChanged(object sender, EventArgs e)
         {
-            try 
-            { 
+            try
+            {
                 _contact.IdVk = VkTextBox.Text;
                 _idVkError = null;
                 VkTextBox.BackColor = Color.White;

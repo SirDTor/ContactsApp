@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ContactsApp.Model;
+using System.Diagnostics.Eventing.Reader;
 
 namespace ContactsApp.View
 {
@@ -22,7 +24,17 @@ namespace ContactsApp.View
         /// <summary>
         /// Переменная для генерации рандомного числа
         /// </summary>
-        Random rng = new Random();
+        private Random rng = new Random();
+
+        /// <summary>
+        /// Метод генерации рандомного числа
+        /// </summary>
+        /// <param name="rng"></param>
+        /// <returns></returns>
+        static int GenerateDigit(Random rng)
+        {
+            return rng.Next(5);
+        }
 
         /// <summary>
         /// Метод по обновлению списка контактов
@@ -38,18 +50,31 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Метод добавляющий контакт в список
+        /// 
         /// </summary>
         private void AddContact()
         {
+            var addForm = new ContactForm();
+            addForm.ShowDialog();
+            var updatedData = addForm.Contact;
+            if (addForm.DialogResult == DialogResult.OK)
+            {
+                _project.Contacts.Add(updatedData);
+            } 
+            else if (addForm.DialogResult == DialogResult.Cancel) { return;}
             
+        }
+
+        /// <summary>
+        /// Метод добавляющий случайные контакты в список
+        /// </summary>
+        private void AddRandomContacts()
+        {
             string[] arrContactName = { "ЗоРиН", "ГавРилов", "КурБанов", "базкен", "кочетов" };
             string[] arrContactEmail = { "dannl@gmail.com", "zordl@mail.ru", "petsp@no.mail", "test@mail.ru", "asdas@mail.ru" };
             string[] arrContactPhone = { "89234427925", "7(495)733-26-31", "7(495)840-47-17", "7(495)467-21-28", "7(495)859-56-70" };
             string[] arrContactIdVk = { "@123412", "@sirdktor", "@test", "@id12312", "@00000" };
 
-
-            //var listContact = new List<Contact>();
             int randomContact;
 
             for (int i = 0; i < 6; i++)
@@ -57,20 +82,25 @@ namespace ContactsApp.View
                 randomContact = GenerateDigit(rng);
                 Contact contact = new Contact(arrContactName[randomContact], arrContactEmail[randomContact],
                     arrContactPhone[randomContact], DateTime.Today, arrContactIdVk[randomContact]);
-                //listContact.Add(contact);
+                
                 _project.Contacts.Add(contact);
             }
-            //_project.Contacts.AddRange(listContact);
         }
 
         /// <summary>
-        /// Метод генерации рандомного числа
+        /// 
         /// </summary>
-        /// <param name="rng"></param>
-        /// <returns></returns>
-        static int GenerateDigit(Random rng)
+        /// <param name="index"></param>
+        private void EditContact(int index)
         {
-            return rng.Next(5);
+            var cloneContact = (Contact)_project.Contacts[index].Clone();
+            var editForm = new ContactForm();
+            editForm.Contact = cloneContact;
+            editForm.ShowDialog();
+            var updatedData = editForm.Contact;
+            ContactsListBox.Items.RemoveAt(index);
+            _project.Contacts.RemoveAt(index);
+            _project.Contacts.Insert(index, updatedData);
         }
 
         /// <summary>
@@ -101,7 +131,7 @@ namespace ContactsApp.View
             FullNameTextBox.Text = _project.Contacts[index].FullName;
             EmailTextBox.Text = _project.Contacts[index].Email;
             PhoneNumberTextBox.Text = _project.Contacts[index].Phone;
-            DateOfBirthTextBox.Text = _project.Contacts[index].DateOfBirth.ToString();
+            DateOfBirthTextBox.Text = _project.Contacts[index].DateOfBirth.GetDateTimeFormats('d')[0];
             VkTextbox.Text = _project.Contacts[index].IdVk;
         }
 
@@ -127,15 +157,13 @@ namespace ContactsApp.View
         {
             AddContact();
             UpdateListBox();
-            var AddForm = new ContactForm();
-            AddForm.ShowDialog();
-
         }
 
         private void EditContactPictureBox_Click(object sender, EventArgs e)
         {
-            var EditForm = new ContactForm();
-            EditForm.ShowDialog();
+
+            EditContact(ContactsListBox.SelectedIndex);
+            UpdateListBox();
         }
 
         private void RemoveContactPictureBox_Click(object sender, EventArgs e)
@@ -239,6 +267,12 @@ namespace ContactsApp.View
         {
             e.Cancel = MessageBox.Show("Do you really want to close program?",
             "Attention", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            AddRandomContacts();
+            UpdateListBox();
         }
     }
 }
