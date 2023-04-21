@@ -35,7 +35,7 @@
             this.RemoveContactPictureBox = new System.Windows.Forms.PictureBox();
             this.AddContactPictureBox = new System.Windows.Forms.PictureBox();
             this.EditContactPictureBox = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.AddRandomContactPictureBox = new System.Windows.Forms.PictureBox();
             this.FindLabel = new System.Windows.Forms.Label();
             this.FindTextBox = new System.Windows.Forms.TextBox();
             this.ContactsListBox = new System.Windows.Forms.ListBox();
@@ -56,8 +56,8 @@
             this.FullNameTextBox = new System.Windows.Forms.TextBox();
             this.FullNameLabel = new System.Windows.Forms.Label();
             this.PhotoPictureBox = new System.Windows.Forms.PictureBox();
-            this.PanelUp = new System.Windows.Forms.Panel();
-            this.PanelUpPictureBox = new System.Windows.Forms.PictureBox();
+            this.UpPanel = new System.Windows.Forms.Panel();
+            this.UpPanelPictureBox = new System.Windows.Forms.PictureBox();
             this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
             this.MainContactsTableLayoutPanel.SuspendLayout();
             this.ContactsPanel.SuspendLayout();
@@ -65,13 +65,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.RemoveContactPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AddContactPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EditContactPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AddRandomContactPictureBox)).BeginInit();
             this.ContactsInfoPanel.SuspendLayout();
             this.BirthdayPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BirhdayInfoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PhotoPictureBox)).BeginInit();
-            this.PanelUp.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PanelUpPictureBox)).BeginInit();
+            this.UpPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.UpPanelPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // MainContactsTableLayoutPanel
@@ -119,7 +119,7 @@
             this.ContactsButtonTableLayoutPanel.Controls.Add(this.RemoveContactPictureBox, 2, 0);
             this.ContactsButtonTableLayoutPanel.Controls.Add(this.AddContactPictureBox, 0, 0);
             this.ContactsButtonTableLayoutPanel.Controls.Add(this.EditContactPictureBox, 1, 0);
-            this.ContactsButtonTableLayoutPanel.Controls.Add(this.pictureBox1, 3, 0);
+            this.ContactsButtonTableLayoutPanel.Controls.Add(this.AddRandomContactPictureBox, 3, 0);
             this.ContactsButtonTableLayoutPanel.Location = new System.Drawing.Point(0, 499);
             this.ContactsButtonTableLayoutPanel.Margin = new System.Windows.Forms.Padding(6);
             this.ContactsButtonTableLayoutPanel.Name = "ContactsButtonTableLayoutPanel";
@@ -174,18 +174,18 @@
             this.EditContactPictureBox.MouseEnter += new System.EventHandler(this.EditContactPictureBox_MouseEnter);
             this.EditContactPictureBox.MouseLeave += new System.EventHandler(this.EditContactPictureBox_MouseLeave);
             // 
-            // pictureBox1
+            // AddRandomContactPictureBox
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::ContactsApp.View.Properties.Resources.add_random_contact_32x32_gray;
-            this.pictureBox1.Location = new System.Drawing.Point(177, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(61, 45);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.AddRandomContactPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AddRandomContactPictureBox.Image = global::ContactsApp.View.Properties.Resources.add_random_contact_32x32_gray;
+            this.AddRandomContactPictureBox.Location = new System.Drawing.Point(177, 0);
+            this.AddRandomContactPictureBox.Margin = new System.Windows.Forms.Padding(0);
+            this.AddRandomContactPictureBox.Name = "AddRandomContactPictureBox";
+            this.AddRandomContactPictureBox.Size = new System.Drawing.Size(61, 45);
+            this.AddRandomContactPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.AddRandomContactPictureBox.TabIndex = 3;
+            this.AddRandomContactPictureBox.TabStop = false;
+            this.AddRandomContactPictureBox.Click += new System.EventHandler(this.AddRandomContactPictureBox_Click);
             // 
             // FindLabel
             // 
@@ -271,7 +271,7 @@
             this.ContactsInfoPanel.Controls.Add(this.FullNameTextBox);
             this.ContactsInfoPanel.Controls.Add(this.FullNameLabel);
             this.ContactsInfoPanel.Controls.Add(this.PhotoPictureBox);
-            this.ContactsInfoPanel.Controls.Add(this.PanelUp);
+            this.ContactsInfoPanel.Controls.Add(this.UpPanel);
             this.ContactsInfoPanel.Location = new System.Drawing.Point(253, 3);
             this.ContactsInfoPanel.Name = "ContactsInfoPanel";
             this.ContactsInfoPanel.Size = new System.Drawing.Size(625, 548);
@@ -449,30 +449,30 @@
             this.PhotoPictureBox.TabIndex = 0;
             this.PhotoPictureBox.TabStop = false;
             // 
-            // PanelUp
+            // UpPanel
             // 
-            this.PanelUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.PanelUp.Controls.Add(this.PanelUpPictureBox);
-            this.PanelUp.Location = new System.Drawing.Point(573, 493);
-            this.PanelUp.Margin = new System.Windows.Forms.Padding(0);
-            this.PanelUp.Name = "PanelUp";
-            this.PanelUp.Size = new System.Drawing.Size(52, 52);
-            this.PanelUp.TabIndex = 13;
-            this.PanelUp.Visible = false;
+            this.UpPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.UpPanel.Controls.Add(this.UpPanelPictureBox);
+            this.UpPanel.Location = new System.Drawing.Point(573, 493);
+            this.UpPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.UpPanel.Name = "UpPanel";
+            this.UpPanel.Size = new System.Drawing.Size(52, 52);
+            this.UpPanel.TabIndex = 13;
+            this.UpPanel.Visible = false;
             // 
-            // PanelUpPictureBox
+            // UpPanelPictureBox
             // 
-            this.PanelUpPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.PanelUpPictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.PanelUpPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("PanelUpPictureBox.Image")));
-            this.PanelUpPictureBox.Location = new System.Drawing.Point(2, 2);
-            this.PanelUpPictureBox.Margin = new System.Windows.Forms.Padding(2);
-            this.PanelUpPictureBox.Name = "PanelUpPictureBox";
-            this.PanelUpPictureBox.Size = new System.Drawing.Size(48, 48);
-            this.PanelUpPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.PanelUpPictureBox.TabIndex = 12;
-            this.PanelUpPictureBox.TabStop = false;
-            this.PanelUpPictureBox.Click += new System.EventHandler(this.panelUpPictureBox_Click);
+            this.UpPanelPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.UpPanelPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.UpPanelPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("UpPanelPictureBox.Image")));
+            this.UpPanelPictureBox.Location = new System.Drawing.Point(2, 2);
+            this.UpPanelPictureBox.Margin = new System.Windows.Forms.Padding(2);
+            this.UpPanelPictureBox.Name = "UpPanelPictureBox";
+            this.UpPanelPictureBox.Size = new System.Drawing.Size(48, 48);
+            this.UpPanelPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.UpPanelPictureBox.TabIndex = 12;
+            this.UpPanelPictureBox.TabStop = false;
+            this.UpPanelPictureBox.Click += new System.EventHandler(this.PanelUpPictureBox_Click);
             // 
             // MainForm
             // 
@@ -495,15 +495,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.RemoveContactPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AddContactPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EditContactPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AddRandomContactPictureBox)).EndInit();
             this.ContactsInfoPanel.ResumeLayout(false);
             this.ContactsInfoPanel.PerformLayout();
             this.BirthdayPanel.ResumeLayout(false);
             this.BirthdayPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BirhdayInfoPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PhotoPictureBox)).EndInit();
-            this.PanelUp.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PanelUpPictureBox)).EndInit();
+            this.UpPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.UpPanelPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -536,10 +536,10 @@
         private System.Windows.Forms.Label BirthdayPanelLabel;
         private System.Windows.Forms.PictureBox BirhdayInfoPictureBox;
         private System.Windows.Forms.Button BirthdayPanelCloseButton;
-        private System.Windows.Forms.PictureBox PanelUpPictureBox;
-        private System.Windows.Forms.Panel PanelUp;
+        private System.Windows.Forms.PictureBox UpPanelPictureBox;
+        private System.Windows.Forms.Panel UpPanel;
         private System.DirectoryServices.DirectoryEntry directoryEntry1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox AddRandomContactPictureBox;
     }
 }
 

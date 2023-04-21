@@ -17,7 +17,7 @@ namespace ContactsApp.View
     public partial class MainForm : Form
     {
         /// <summary>
-        /// Поле класса Project 
+        /// Поле класса  <see cref="Project"> 
         /// </summary>
         private Project _project = new Project();
 
@@ -45,12 +45,12 @@ namespace ContactsApp.View
             ContactsListBox.Items.Clear();
             foreach (Contact contactList in _project.Contacts)
             {
-                ContactsListBox.Items.Insert(i++,contactList.FullName);
+                ContactsListBox.Items.Add(contactList.FullName);
             }
         }
 
         /// <summary>
-        /// 
+        /// Метод добавляющий новый контакт в список
         /// </summary>
         private void AddContact()
         {
@@ -60,9 +60,10 @@ namespace ContactsApp.View
             if (addForm.DialogResult == DialogResult.OK)
             {
                 _project.Contacts.Add(updatedData);
-            } 
-            else if (addForm.DialogResult == DialogResult.Cancel) { return;}
-            
+            }
+            else if (addForm.DialogResult == DialogResult.Cancel) { return; }
+            else if (addForm.DialogResult == DialogResult.Ignore) { }
+
         }
 
         /// <summary>
@@ -82,13 +83,13 @@ namespace ContactsApp.View
                 randomContact = GenerateDigit(rng);
                 Contact contact = new Contact(arrContactName[randomContact], arrContactEmail[randomContact],
                     arrContactPhone[randomContact], DateTime.Today, arrContactIdVk[randomContact]);
-                
+
                 _project.Contacts.Add(contact);
             }
         }
 
         /// <summary>
-        /// 
+        /// Метод редактирующий выбранный в списке контакт
         /// </summary>
         /// <param name="index"></param>
         private void EditContact(int index)
@@ -97,10 +98,14 @@ namespace ContactsApp.View
             var editForm = new ContactForm();
             editForm.Contact = cloneContact;
             editForm.ShowDialog();
-            var updatedData = editForm.Contact;
-            ContactsListBox.Items.RemoveAt(index);
-            _project.Contacts.RemoveAt(index);
-            _project.Contacts.Insert(index, updatedData);
+            if (editForm.DialogResult == DialogResult.OK)
+            {
+                var updatedData = editForm.Contact;
+                ContactsListBox.Items.RemoveAt(index);
+                _project.Contacts.RemoveAt(index);
+                _project.Contacts.Insert(index, updatedData);
+            }
+            else if (editForm.DialogResult == DialogResult.Cancel) { return; }
         }
 
         /// <summary>
@@ -119,7 +124,7 @@ namespace ContactsApp.View
             {
                 _project.Contacts.RemoveAt(index);
             }
-            
+
         }
 
         /// <summary>
@@ -161,14 +166,22 @@ namespace ContactsApp.View
 
         private void EditContactPictureBox_Click(object sender, EventArgs e)
         {
-
-            EditContact(ContactsListBox.SelectedIndex);
-            UpdateListBox();
+            if (ContactsListBox.SelectedIndex == -1)
+            {
+                MessageBox.Show("Contact is not selected",
+                "Attention", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                EditContact(ContactsListBox.SelectedIndex);
+                UpdateListBox();
+            }
         }
 
         private void RemoveContactPictureBox_Click(object sender, EventArgs e)
         {
             RemoveContact(ContactsListBox.SelectedIndex);
+            ClearSelectedContact();
             UpdateListBox();
         }
 
@@ -245,18 +258,18 @@ namespace ContactsApp.View
         private void BirthdayPanelCloseButton_Click(object sender, EventArgs e)
         {
             BirthdayPanel.Visible = false;
-            PanelUp.Visible = true;
+            UpPanel.Visible = true;
         }
 
-        private void panelUpPictureBox_Click(object sender, EventArgs e)
+        private void PanelUpPictureBox_Click(object sender, EventArgs e)
         {
-            PanelUp.Visible = false;
+            UpPanel.Visible = false;
             BirthdayPanel.Visible = true;
         }
 
         private void ContactsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ContactsListBox.SelectedIndex == -1) 
+            if (ContactsListBox.SelectedIndex == -1)
             {
                 ClearSelectedContact();
             }
@@ -269,7 +282,7 @@ namespace ContactsApp.View
             "Attention", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes;
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void AddRandomContactPictureBox_Click(object sender, EventArgs e)
         {
             AddRandomContacts();
             UpdateListBox();

@@ -15,19 +15,19 @@ namespace ContactsApp.View
     public partial class ContactForm : Form
     {
         /// <summary>
-        /// Поле класса Contact
+        /// Поле класса <see cref="Contact">
         /// </summary>
         private Contact _contact = new Contact("", "", "89234427925",
             new DateTime(2000, 1, 1), "");
 
         /// <summary>
-        /// 
+        /// Установка и получение экземпляра <see cref="Contact">
         /// </summary>
         public Contact Contact
         {
             get => _contact;
-            set 
-            { 
+            set
+            {
                 _contact = value;
                 UpdateForm();
             }
@@ -108,39 +108,6 @@ namespace ContactsApp.View
             _contact.Phone = PhoneNumberTextBox.Text;
             _contact.DateOfBirth = DateOfBirthTimePicker.Value;
             _contact.IdVk = VkTextBox.Text;
-        }
-
-        private void AddPhotoPictureBox_MouseEnter(object sender, EventArgs e)
-        {
-            AddPhotoPictureBox.Image = Properties.Resources.add_photo_32x32;
-            AddPhotoPictureBox.BackColor = System.Drawing.ColorTranslator.FromHtml("#F5F5FF");
-        }
-
-        private void AddPhotoPictureBox_MouseLeave(object sender, EventArgs e)
-        {
-            AddPhotoPictureBox.Image = Properties.Resources.add_photo_32x32_gray;
-            AddPhotoPictureBox.BackColor = Color.White;
-        }
-
-        private void CancelButton_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Cancel;
-            this.Close();
-        }
-
-        private void OkButton_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.OK;
-            if (CheckFormOnErrors())
-            {
-                UpdateContact();
-                this.Close();
-            }
-        }
-
-        private void AddPhotoPictureBox_Click(object sender, EventArgs e)
-        {
-
         }
 
         /// <summary>
@@ -251,6 +218,44 @@ namespace ContactsApp.View
                 PhoneNumberTextBox.BackColor = Color.LightPink;
                 throw new ArgumentException(_phoneError);
             }
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private void OkButton_Click(object sender, EventArgs e)
+        {
+            bool ErrorsInContactForm = CheckFormOnErrors();
+            if (ErrorsInContactForm == true)
+            {
+                DialogResult = DialogResult.OK;
+                UpdateContact();
+                this.Close();
+            }
+            else if (ErrorsInContactForm == false)
+            {
+                DialogResult = DialogResult.Ignore;
+            }
+        }
+
+        private void AddPhotoPictureBox_MouseEnter(object sender, EventArgs e)
+        {
+            AddPhotoPictureBox.Image = Properties.Resources.add_photo_32x32;
+            AddPhotoPictureBox.BackColor = System.Drawing.ColorTranslator.FromHtml("#F5F5FF");
+        }
+
+        private void AddPhotoPictureBox_MouseLeave(object sender, EventArgs e)
+        {
+            AddPhotoPictureBox.Image = Properties.Resources.add_photo_32x32_gray;
+            AddPhotoPictureBox.BackColor = Color.White;
+        }
+
+        private void AddPhotoPictureBox_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
