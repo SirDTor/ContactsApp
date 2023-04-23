@@ -24,10 +24,8 @@ namespace ContactsApp.Model
         /// <returns></returns>
         public List<Contact> SortContactsBySurname(List<Contact> contact)
         {
-            var selectedContact = from p in contact
-                                  orderby p.FullName
-                                  select p.FullName;
-            return (List<Contact>)selectedContact;
+            var orderByContact = contact.OrderBy(c => c.FullName).ToList();
+            return orderByContact;
         }
 
         /// <summary>
@@ -47,13 +45,11 @@ namespace ContactsApp.Model
         /// Возвращает найденные по подстроке контакты
         /// </summary>
         /// <param name="contact"></param>
+        /// <param name="name"></param>
         /// <returns></returns>
-        public List<Contact> FindContact(List<Contact> contact)
+        public List<Contact> FindContact(List<Contact> contact, string name)
         {
-            string contactToFind = "Зорин";
-            var selectedContact = from p in contact
-                                  where p.FullName == contactToFind
-                                  select p;
+            var selectedContact = contact.Where(c => c.FullName.Contains(name)).ToList();
             return (List<Contact>)selectedContact;
         }
     }

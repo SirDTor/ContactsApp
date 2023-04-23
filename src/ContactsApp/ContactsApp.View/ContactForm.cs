@@ -59,8 +59,14 @@ namespace ContactsApp.View
         /// </summary>
         private string _idVkError;
 
+        /// <summary>
+        /// 
+        /// </summary>
         private static Color _errorColorInTextBox = Color.LightPink;
 
+        /// <summary>
+        /// 
+        /// </summary>
         private static Color _noErrorColorInTextBox = Color.White;
 
         public ContactForm()
@@ -79,7 +85,6 @@ namespace ContactsApp.View
             PhoneNumberTextBox.Text = _contact.Phone;
             DateOfBirthTimePicker.Value = _contact.DateOfBirth;
             VkTextBox.Text = _contact.IdVk;
-
         }
 
         /// <summary>

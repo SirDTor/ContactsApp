@@ -22,9 +22,9 @@ namespace ContactsApp.View
         private Project _project = new Project();
 
         /// <summary>
-        /// Поле для генерации случайного контакта <see cref="RandomContacts">
+        /// 
         /// </summary>
-        private RandomContacts _randomContacts = new RandomContacts();
+        private List<Contact> _currentContact = new List<Contact>();
 
         /// <summary>
         /// Переменная для генерации рандомного числа
@@ -37,10 +37,28 @@ namespace ContactsApp.View
         private void UpdateListBox()
         {
             ContactsListBox.Items.Clear();
+            _project.Contacts = _project.SortContactsBySurname(_project.Contacts);
+            _currentContact = _project.Contacts;
             foreach (Contact contactList in _project.Contacts)
             {
                 ContactsListBox.Items.Add(contactList.FullName);
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void FindContact()
+        {
+            if (FindTextBox.Text != "")
+            {
+                _currentContact = _project.FindContact(_project.Contacts, FindTextBox.Text);
+                ContactsListBox.Items.Clear();
+                foreach (Contact contactList in _currentContact)
+                {
+                    ContactsListBox.Items.Add(contactList.FullName);
+                }
+            } else UpdateListBox();
         }
 
         /// <summary>
@@ -97,9 +115,15 @@ namespace ContactsApp.View
             string caption = "Delete contact";
             DialogResult result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if (result == DialogResult.Yes)
+            for (int i = 0;i< _project.Contacts.Count;i++)
             {
-                _project.Contacts.RemoveAt(index);
+                if (_project.Contacts[i].FullName == _currentContact[index].FullName 
+                    && _project.Contacts[i].Phone == _currentContact[index].Phone
+                    && result == DialogResult.Yes)
+                {
+                    _project.Contacts.RemoveAt(i);
+                    break;
+                }
             }
 
         }
@@ -110,11 +134,11 @@ namespace ContactsApp.View
         /// <param name="index"></param>
         private void UpdateSelectedContact(int index)
         {
-            FullNameTextBox.Text = _project.Contacts[index].FullName;
-            EmailTextBox.Text = _project.Contacts[index].Email;
-            PhoneNumberTextBox.Text = _project.Contacts[index].Phone;
-            DateOfBirthTextBox.Text = _project.Contacts[index].DateOfBirth.GetDateTimeFormats('d')[0];
-            VkTextbox.Text = _project.Contacts[index].IdVk;
+            FullNameTextBox.Text = _currentContact[index].FullName;
+            EmailTextBox.Text = _currentContact[index].Email;
+            PhoneNumberTextBox.Text = _currentContact[index].Phone;
+            DateOfBirthTextBox.Text = _currentContact[index].DateOfBirth.GetDateTimeFormats('d')[0];
+            VkTextbox.Text = _currentContact[index].IdVk;
         }
 
         /// <summary>
@@ -159,7 +183,7 @@ namespace ContactsApp.View
         {
             RemoveContact(ContactsListBox.SelectedIndex);
             ClearSelectedContact();
-            UpdateListBox();
+            FindContact();
         }
 
         private void AddContactPictureBox_MouseEnter(object sender, EventArgs e)
@@ -263,6 +287,11 @@ namespace ContactsApp.View
         {
             AddRandomContacts();
             UpdateListBox();
+        }
+
+        private void FindTextBox_TextChanged(object sender, EventArgs e)
+        {
+            FindContact();
         }
     }
 }

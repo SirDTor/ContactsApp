@@ -20,23 +20,23 @@ namespace ContactsApp.Model
         /// <summary>
         /// 
         /// </summary>
-        private static string[] _arrMaleName = {"Тимур", "Михаил", "Иван", "Дмитрий", "Николай", "Тимофей" };
+        private static string[] _arrMaleName = { "Тимур", "Михаил", "Иван", "Дмитрий", "Николай", "Тимофей" };
 
         /// <summary>
         /// 
         /// </summary>
-        private static string[] _arrFemaleName = {"София","Анна","Полина","Елизавета", "Александра","Анна" };
+        private static string[] _arrFemaleName = {"Амбразура", "София", "Анна", "Полина", "Елизавета", "Александра", "Анна" };
 
         /// <summary>
         /// 
         /// </summary>
-        private static string[] _arrPatronymic = {"Алексеев","Матвеев","Михайлов","Егоров",
-            "Алексеев","Григорьев","Александров","Глебов" };
+        private static string[] _arrPatronymic = {"Амбразуров","Матвеев","Михайлов","Егоров",
+            "Алексеев","Григорьев","Александров","Глебов", "Даниилов" };
 
         /// <summary>
         /// 
         /// </summary>
-        private static string[] _fullName = new string [20];
+        private static string[] _fullName = new string[20];
 
         /// <summary>
         /// 
@@ -63,7 +63,7 @@ namespace ContactsApp.Model
         /// <param name="rnd"></param>
         /// <param name="lengthOfArray"></param>
         /// <returns></returns>
-        private static int GenerateDigit(Random _rnd,int lengthOfArray)
+        private static int GenerateDigit(Random _rnd, int lengthOfArray)
         {
             return _rnd.Next(lengthOfArray);
         }
@@ -79,10 +79,10 @@ namespace ContactsApp.Model
 
             for (int i = 0; i <= 10; i++)
             {
-                _fullName[i] = _arrSurname[GenerateDigit(_rnd, _arrSurname.Length)]+ " " +
+                _fullName[i] = _arrSurname[GenerateDigit(_rnd, _arrSurname.Length)] + " " +
                     _arrMaleName[GenerateDigit(_rnd, _arrMaleName.Length)] + " "
-                    + _arrPatronymic[GenerateDigit(_rnd, _arrPatronymic.Length)]+"ич";
-                
+                    + _arrPatronymic[GenerateDigit(_rnd, _arrPatronymic.Length)] + "ич";
+
             }
             for (int i = 11; i < 20; i++)
             {
@@ -91,7 +91,7 @@ namespace ContactsApp.Model
                     + _arrPatronymic[GenerateDigit(_rnd, _arrPatronymic.Length)] + "на";
 
             }
-            for (int i = 0; i < 20; i++ )
+            for (int i = 0; i < 20; i++)
             {
                 Contact contact = new Contact(_fullName[GenerateDigit(_rnd, _fullName.Length)],
                 _email[GenerateDigit(_rnd, _email.Length)],
@@ -100,7 +100,7 @@ namespace ContactsApp.Model
 
                 project.Contacts.Add(contact);
             }
- 
+
             return project.Contacts;
         }
     }
