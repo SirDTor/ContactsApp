@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace ContactsApp.View
 {
     public partial class ContactForm : Form
@@ -58,6 +59,10 @@ namespace ContactsApp.View
         /// </summary>
         private string _idVkError;
 
+        private static Color _errorColorInTextBox = Color.LightPink;
+
+        private static Color _noErrorColorInTextBox = Color.White;
+
         public ContactForm()
         {
             InitializeComponent();
@@ -83,13 +88,13 @@ namespace ContactsApp.View
         /// <returns></returns>
         private bool CheckFormOnErrors()
         {
-            string strError = null;
-            strError += _fullNameError;
-            strError += _emailError;
-            strError += _phoneError;
-            strError += _dateError;
-            strError += _idVkError;
-            if (strError != null && strError != "")
+            string fullError = null;
+            fullError += _fullNameError;
+            fullError += _emailError;
+            fullError += _phoneError;
+            fullError += _dateError;
+            fullError += _idVkError;
+            if (fullError != null && fullError != "")
             {
                 MessageBox.Show($"{_fullNameError}\n{_emailError}\n{_phoneError}\n{_dateError}\n{_idVkError}",
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -122,13 +127,13 @@ namespace ContactsApp.View
             {
                 _contact.FullName = FullNameTextBox.Text;
                 _fullNameError = null;
-                FullNameTextBox.BackColor = Color.White;
+                FullNameTextBox.BackColor = _noErrorColorInTextBox;
             }
-            catch (Exception ex)
+            catch (Exception exception)
             {
-                _fullNameError = ex.Message;
-                FullNameTextBox.BackColor = Color.LightPink;
-                throw new ArgumentException(ex.Message);
+                _fullNameError = exception.Message;
+                FullNameTextBox.BackColor = _errorColorInTextBox;
+                throw new ArgumentException(exception.Message);
             }
         }
 
@@ -144,13 +149,13 @@ namespace ContactsApp.View
             {
                 _contact.Email = EmailTextBox.Text;
                 _emailError = null;
-                EmailTextBox.BackColor = Color.White;
+                EmailTextBox.BackColor = _noErrorColorInTextBox;
             }
-            catch (Exception ex)
+            catch (Exception exception)
             {
-                _emailError = ex.Message;
-                EmailTextBox.BackColor = Color.LightPink;
-                throw new ArgumentException(ex.Message);
+                _emailError = exception.Message;
+                EmailTextBox.BackColor = _errorColorInTextBox;
+                throw new ArgumentException(exception.Message);
             }
         }
 
@@ -166,13 +171,13 @@ namespace ContactsApp.View
             {
                 _contact.DateOfBirth = DateOfBirthTimePicker.Value;
                 _dateError = null;
-                DateOfBirthTimePicker.CalendarForeColor = Color.White;
+                DateOfBirthTimePicker.CalendarForeColor = _noErrorColorInTextBox;
             }
-            catch (Exception ex)
+            catch (Exception exception)
             {
-                _dateError = ex.Message;
-                DateOfBirthTimePicker.CalendarForeColor = Color.LightPink;
-                throw new ArgumentException(ex.Message);
+                _dateError = exception.Message;
+                DateOfBirthTimePicker.CalendarForeColor = _errorColorInTextBox;
+                throw new ArgumentException(exception.Message);
             }
         }
 
@@ -188,13 +193,13 @@ namespace ContactsApp.View
             {
                 _contact.IdVk = VkTextBox.Text;
                 _idVkError = null;
-                VkTextBox.BackColor = Color.White;
+                VkTextBox.BackColor = _noErrorColorInTextBox;
             }
-            catch (Exception ex)
+            catch (Exception exception)
             {
-                VkTextBox.BackColor = Color.LightPink;
-                _idVkError = ex.Message;
-                throw new ArgumentException(ex.Message);
+                VkTextBox.BackColor = _errorColorInTextBox;
+                _idVkError = exception.Message;
+                throw new ArgumentException(exception.Message);
             }
         }
 
@@ -210,13 +215,13 @@ namespace ContactsApp.View
             {
                 _contact.Phone = PhoneNumberTextBox.Text;
                 _phoneError = null;
-                PhoneNumberTextBox.BackColor = Color.White;
+                PhoneNumberTextBox.BackColor = _noErrorColorInTextBox;
             }
-            catch (Exception ex)
+            catch (Exception exception)
             {
-                _phoneError = ex.Message;
-                PhoneNumberTextBox.BackColor = Color.LightPink;
-                throw new ArgumentException(_phoneError);
+                _phoneError = exception.Message;
+                PhoneNumberTextBox.BackColor = _errorColorInTextBox;
+                throw new ArgumentException(exception.Message);
             }
         }
 
@@ -228,16 +233,12 @@ namespace ContactsApp.View
 
         private void OkButton_Click(object sender, EventArgs e)
         {
-            bool ErrorsInContactForm = CheckFormOnErrors();
-            if (ErrorsInContactForm == true)
+            bool isNoErrorsOnForm = CheckFormOnErrors();
+            if (!isNoErrorsOnForm)
             {
-                DialogResult = DialogResult.OK;
                 UpdateContact();
+                DialogResult = DialogResult.OK;
                 this.Close();
-            }
-            else if (ErrorsInContactForm == false)
-            {
-                DialogResult = DialogResult.Ignore;
             }
         }
 
@@ -251,11 +252,6 @@ namespace ContactsApp.View
         {
             AddPhotoPictureBox.Image = Properties.Resources.add_photo_32x32_gray;
             AddPhotoPictureBox.BackColor = Color.White;
-        }
-
-        private void AddPhotoPictureBox_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

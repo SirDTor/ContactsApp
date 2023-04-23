@@ -41,6 +41,12 @@ namespace ContactsApp.Model
         private string _idVk;
 
         /// <summary>
+        /// 
+        /// </summary>
+        private const string PhoneNumberValidationMask =
+                    @"^((\+7|7|8)[[\(]?(\d{3})[\)]?]?\d{3}[[-]?(\d{2}[-]?]?\d{2}))$";
+
+        /// <summary>
         /// Возвращает или задает полное имя контакта
         /// </summary>
         public string FullName  //Ограничение в 100 символов
@@ -55,8 +61,8 @@ namespace ContactsApp.Model
                 {
                     throw new ArgumentException($"Contact name must be less than 100, value = {_fullName.Length}");
                 }
-                TextInfo ti = CultureInfo.CurrentCulture.TextInfo;
-                _fullName = ti.ToTitleCase(value).ToString();
+                TextInfo toUpperTextInfo = CultureInfo.CurrentCulture.TextInfo;
+                _fullName = toUpperTextInfo.ToTitleCase(value).ToString();
             }
         }
 
@@ -90,10 +96,11 @@ namespace ContactsApp.Model
             }
             set
             {
-                string PhoneNumberValidationMask = @"^((\+7|7|8)[[\(]?(\d{3})[\)]?]?\d{3}[[-]?(\d{2}[-]?]?\d{2}))$";
                 if (!Regex.IsMatch(value, PhoneNumberValidationMask))
                 {
-                    throw new ArgumentException($"The phone number contains an invalid character.");
+                    throw new ArgumentException($"The phone number contains an invalid character.\n Example:\n " +
+                        $"8(923)442-79-25\n" +
+                        $"89234427925");
                 }
                 _phone = value;
             }
@@ -110,9 +117,10 @@ namespace ContactsApp.Model
             }
             set
             {
-                if (value.Year <= 1900 || value > DateTime.Today)
+                if (value.Year <= 1900 || value > DateTime.Now)
                 {
-                    throw new ArgumentException($"Year must be less or more than current year " + $"But was {value.Year}");
+                    throw new ArgumentException($"Year must be less or more than current year " + 
+                        $"But was {value.Year}");
                 }
                 _dateOfBirth = value;
                 

@@ -22,26 +22,20 @@ namespace ContactsApp.View
         private Project _project = new Project();
 
         /// <summary>
-        /// Переменная для генерации рандомного числа
+        /// Поле для генерации случайного контакта <see cref="RandomContacts">
         /// </summary>
-        private Random rng = new Random();
+        private RandomContacts _randomContacts = new RandomContacts();
 
         /// <summary>
-        /// Метод генерации рандомного числа
+        /// Переменная для генерации рандомного числа
         /// </summary>
-        /// <param name="rng"></param>
-        /// <returns></returns>
-        static int GenerateDigit(Random rng)
-        {
-            return rng.Next(5);
-        }
+        private Random _rng = new Random();
 
         /// <summary>
         /// Метод по обновлению списка контактов
         /// </summary>
         private void UpdateListBox()
         {
-            int i = 0;
             ContactsListBox.Items.Clear();
             foreach (Contact contactList in _project.Contacts)
             {
@@ -61,9 +55,6 @@ namespace ContactsApp.View
             {
                 _project.Contacts.Add(updatedData);
             }
-            else if (addForm.DialogResult == DialogResult.Cancel) { return; }
-            else if (addForm.DialogResult == DialogResult.Ignore) { }
-
         }
 
         /// <summary>
@@ -71,21 +62,7 @@ namespace ContactsApp.View
         /// </summary>
         private void AddRandomContacts()
         {
-            string[] arrContactName = { "ЗоРиН", "ГавРилов", "КурБанов", "базкен", "кочетов" };
-            string[] arrContactEmail = { "dannl@gmail.com", "zordl@mail.ru", "petsp@no.mail", "test@mail.ru", "asdas@mail.ru" };
-            string[] arrContactPhone = { "89234427925", "7(495)733-26-31", "7(495)840-47-17", "7(495)467-21-28", "7(495)859-56-70" };
-            string[] arrContactIdVk = { "@123412", "@sirdktor", "@test", "@id12312", "@00000" };
-
-            int randomContact;
-
-            for (int i = 0; i < 6; i++)
-            {
-                randomContact = GenerateDigit(rng);
-                Contact contact = new Contact(arrContactName[randomContact], arrContactEmail[randomContact],
-                    arrContactPhone[randomContact], DateTime.Today, arrContactIdVk[randomContact]);
-
-                _project.Contacts.Add(contact);
-            }
+            _project.Contacts.AddRange(RandomContacts.GenerateRandomContactsName(_rng, _project));
         }
 
         /// <summary>
@@ -120,7 +97,7 @@ namespace ContactsApp.View
             string caption = "Delete contact";
             DialogResult result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if (result == System.Windows.Forms.DialogResult.Yes)
+            if (result == DialogResult.Yes)
             {
                 _project.Contacts.RemoveAt(index);
             }
@@ -258,12 +235,12 @@ namespace ContactsApp.View
         private void BirthdayPanelCloseButton_Click(object sender, EventArgs e)
         {
             BirthdayPanel.Visible = false;
-            UpPanel.Visible = true;
+            UpBirthdayPanel.Visible = true;
         }
 
         private void PanelUpPictureBox_Click(object sender, EventArgs e)
         {
-            UpPanel.Visible = false;
+            UpBirthdayPanel.Visible = false;
             BirthdayPanel.Visible = true;
         }
 

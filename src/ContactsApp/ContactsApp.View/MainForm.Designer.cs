@@ -56,8 +56,8 @@
             this.FullNameTextBox = new System.Windows.Forms.TextBox();
             this.FullNameLabel = new System.Windows.Forms.Label();
             this.PhotoPictureBox = new System.Windows.Forms.PictureBox();
-            this.UpPanel = new System.Windows.Forms.Panel();
-            this.UpPanelPictureBox = new System.Windows.Forms.PictureBox();
+            this.UpBirthdayPanel = new System.Windows.Forms.Panel();
+            this.UpBirthdayPanelPictureBox = new System.Windows.Forms.PictureBox();
             this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
             this.MainContactsTableLayoutPanel.SuspendLayout();
             this.ContactsPanel.SuspendLayout();
@@ -70,8 +70,8 @@
             this.BirthdayPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BirhdayInfoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PhotoPictureBox)).BeginInit();
-            this.UpPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.UpPanelPictureBox)).BeginInit();
+            this.UpBirthdayPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.UpBirthdayPanelPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // MainContactsTableLayoutPanel
@@ -271,7 +271,7 @@
             this.ContactsInfoPanel.Controls.Add(this.FullNameTextBox);
             this.ContactsInfoPanel.Controls.Add(this.FullNameLabel);
             this.ContactsInfoPanel.Controls.Add(this.PhotoPictureBox);
-            this.ContactsInfoPanel.Controls.Add(this.UpPanel);
+            this.ContactsInfoPanel.Controls.Add(this.UpBirthdayPanel);
             this.ContactsInfoPanel.Location = new System.Drawing.Point(253, 3);
             this.ContactsInfoPanel.Name = "ContactsInfoPanel";
             this.ContactsInfoPanel.Size = new System.Drawing.Size(625, 548);
@@ -449,30 +449,30 @@
             this.PhotoPictureBox.TabIndex = 0;
             this.PhotoPictureBox.TabStop = false;
             // 
-            // UpPanel
+            // UpBirthdayPanel
             // 
-            this.UpPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.UpPanel.Controls.Add(this.UpPanelPictureBox);
-            this.UpPanel.Location = new System.Drawing.Point(573, 493);
-            this.UpPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.UpPanel.Name = "UpPanel";
-            this.UpPanel.Size = new System.Drawing.Size(52, 52);
-            this.UpPanel.TabIndex = 13;
-            this.UpPanel.Visible = false;
+            this.UpBirthdayPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.UpBirthdayPanel.Controls.Add(this.UpBirthdayPanelPictureBox);
+            this.UpBirthdayPanel.Location = new System.Drawing.Point(573, 493);
+            this.UpBirthdayPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.UpBirthdayPanel.Name = "UpBirthdayPanel";
+            this.UpBirthdayPanel.Size = new System.Drawing.Size(52, 52);
+            this.UpBirthdayPanel.TabIndex = 13;
+            this.UpBirthdayPanel.Visible = false;
             // 
-            // UpPanelPictureBox
+            // UpBirthdayPanelPictureBox
             // 
-            this.UpPanelPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.UpPanelPictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.UpPanelPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("UpPanelPictureBox.Image")));
-            this.UpPanelPictureBox.Location = new System.Drawing.Point(2, 2);
-            this.UpPanelPictureBox.Margin = new System.Windows.Forms.Padding(2);
-            this.UpPanelPictureBox.Name = "UpPanelPictureBox";
-            this.UpPanelPictureBox.Size = new System.Drawing.Size(48, 48);
-            this.UpPanelPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.UpPanelPictureBox.TabIndex = 12;
-            this.UpPanelPictureBox.TabStop = false;
-            this.UpPanelPictureBox.Click += new System.EventHandler(this.PanelUpPictureBox_Click);
+            this.UpBirthdayPanelPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.UpBirthdayPanelPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.UpBirthdayPanelPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("UpBirthdayPanelPictureBox.Image")));
+            this.UpBirthdayPanelPictureBox.Location = new System.Drawing.Point(2, 2);
+            this.UpBirthdayPanelPictureBox.Margin = new System.Windows.Forms.Padding(2);
+            this.UpBirthdayPanelPictureBox.Name = "UpBirthdayPanelPictureBox";
+            this.UpBirthdayPanelPictureBox.Size = new System.Drawing.Size(48, 48);
+            this.UpBirthdayPanelPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.UpBirthdayPanelPictureBox.TabIndex = 12;
+            this.UpBirthdayPanelPictureBox.TabStop = false;
+            this.UpBirthdayPanelPictureBox.Click += new System.EventHandler(this.PanelUpPictureBox_Click);
             // 
             // MainForm
             // 
@@ -502,8 +502,8 @@
             this.BirthdayPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BirhdayInfoPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PhotoPictureBox)).EndInit();
-            this.UpPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.UpPanelPictureBox)).EndInit();
+            this.UpBirthdayPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.UpBirthdayPanelPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -536,8 +536,8 @@
         private System.Windows.Forms.Label BirthdayPanelLabel;
         private System.Windows.Forms.PictureBox BirhdayInfoPictureBox;
         private System.Windows.Forms.Button BirthdayPanelCloseButton;
-        private System.Windows.Forms.PictureBox UpPanelPictureBox;
-        private System.Windows.Forms.Panel UpPanel;
+        private System.Windows.Forms.PictureBox UpBirthdayPanelPictureBox;
+        private System.Windows.Forms.Panel UpBirthdayPanel;
         private System.DirectoryServices.DirectoryEntry directoryEntry1;
         private System.Windows.Forms.PictureBox AddRandomContactPictureBox;
     }

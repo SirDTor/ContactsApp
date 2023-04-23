@@ -98,7 +98,6 @@
             this.AddPhotoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.AddPhotoPictureBox.TabIndex = 13;
             this.AddPhotoPictureBox.TabStop = false;
-            this.AddPhotoPictureBox.Click += new System.EventHandler(this.AddPhotoPictureBox_Click);
             this.AddPhotoPictureBox.MouseEnter += new System.EventHandler(this.AddPhotoPictureBox_MouseEnter);
             this.AddPhotoPictureBox.MouseLeave += new System.EventHandler(this.AddPhotoPictureBox_MouseLeave);
             // 
