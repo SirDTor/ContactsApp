@@ -17,14 +17,22 @@ namespace ContactsApp.View
     public partial class MainForm : Form
     {
         /// <summary>
-        /// Поле класса  <see cref="Project"> 
+        /// Поле класса <see cref="Project"> 
         /// </summary>
         private Project _project = new Project();
 
         /// <summary>
-        /// 
+        /// Список класса <see cref="Contact"> 
+        /// Хранит данные контактов
+        /// используется для сортировки и поиска контактов
         /// </summary>
         private List<Contact> _currentContact = new List<Contact>();
+
+        /// <summary>
+        /// Список класса <see cref="Contact">
+        /// Хранит контакты у которых сегодня день рождения
+        /// </summary>
+        private List<Contact> _birthdayContacts = new List<Contact>();
 
         /// <summary>
         /// Переменная для генерации рандомного числа
@@ -39,26 +47,39 @@ namespace ContactsApp.View
             ContactsListBox.Items.Clear();
             _project.Contacts = _project.SortContactsBySurname(_project.Contacts);
             _currentContact = _project.Contacts;
-            foreach (Contact contactList in _project.Contacts)
-            {
-                ContactsListBox.Items.Add(contactList.FullName);
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        private void FindContact()
-        {
             if (FindTextBox.Text != "")
             {
                 _currentContact = _project.FindContact(_project.Contacts, FindTextBox.Text);
-                ContactsListBox.Items.Clear();
-                foreach (Contact contactList in _currentContact)
+                foreach (Contact currentContactList in _currentContact)
                 {
-                    ContactsListBox.Items.Add(contactList.FullName);
+                    ContactsListBox.Items.Add(currentContactList.FullName);
                 }
-            } else UpdateListBox();
+            }
+            else
+            {
+                foreach (Contact projectContactList in _project.Contacts)
+                {
+                    ContactsListBox.Items.Add(projectContactList.FullName);
+                }
+            }
+
+            UpdateBirthdayPanel();
+        }
+
+        /// <summary>
+        /// Метод выводящий в текстовое поле именниников
+        /// </summary>
+        private void UpdateBirthdayPanel()
+        {
+            BirthdaySurnameLabel.Text = null;
+
+            _birthdayContacts = _project.FindBirhdayContact(_project.Contacts);
+
+            for (int i = 0; i < 3; i++)
+            {
+                BirthdaySurnameLabel.Text += $"{_birthdayContacts[i].FullName}, ";
+            }
+            BirthdaySurnameLabel.Text += "и т.д.";
         }
 
         /// <summary>
@@ -89,7 +110,7 @@ namespace ContactsApp.View
         /// <param name="index"></param>
         private void EditContact(int index)
         {
-            var cloneContact = (Contact)_project.Contacts[index].Clone();
+            var cloneContact = (Contact)_currentContact[index].Clone();
             var editForm = new ContactForm();
             editForm.Contact = cloneContact;
             editForm.ShowDialog();
@@ -97,8 +118,18 @@ namespace ContactsApp.View
             {
                 var updatedData = editForm.Contact;
                 ContactsListBox.Items.RemoveAt(index);
-                _project.Contacts.RemoveAt(index);
-                _project.Contacts.Insert(index, updatedData);
+                for (int i = 0; i < _project.Contacts.Count; i++)
+                {
+                    if (_project.Contacts[i].FullName == _currentContact[index].FullName
+                        && _project.Contacts[i].Phone == _currentContact[index].Phone
+                        && _project.Contacts[i].Email == _currentContact[index].Email
+                        && _project.Contacts[i].IdVk == _currentContact[index].IdVk)
+                    {
+                        _project.Contacts.RemoveAt(i);
+                        _project.Contacts.Insert(i, updatedData);
+                        break;
+                    }
+                }
             }
             else if (editForm.DialogResult == DialogResult.Cancel) { return; }
         }
@@ -111,13 +142,13 @@ namespace ContactsApp.View
         {
             if (index == -1) return;
 
-            string message = $"Do you really want to remove {_project.Contacts[index].FullName}?";
+            string message = $"Do you really want to remove {_currentContact[index].FullName}?";
             string caption = "Delete contact";
             DialogResult result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            for (int i = 0;i< _project.Contacts.Count;i++)
+            for (int i = 0; i < _project.Contacts.Count; i++)
             {
-                if (_project.Contacts[i].FullName == _currentContact[index].FullName 
+                if (_project.Contacts[i].FullName == _currentContact[index].FullName
                     && _project.Contacts[i].Phone == _currentContact[index].Phone
                     && result == DialogResult.Yes)
                 {
@@ -125,7 +156,6 @@ namespace ContactsApp.View
                     break;
                 }
             }
-
         }
 
         /// <summary>
@@ -183,7 +213,7 @@ namespace ContactsApp.View
         {
             RemoveContact(ContactsListBox.SelectedIndex);
             ClearSelectedContact();
-            FindContact();
+            UpdateListBox();
         }
 
         private void AddContactPictureBox_MouseEnter(object sender, EventArgs e)
@@ -291,7 +321,7 @@ namespace ContactsApp.View
 
         private void FindTextBox_TextChanged(object sender, EventArgs e)
         {
-            FindContact();
+            UpdateListBox();
         }
     }
 }

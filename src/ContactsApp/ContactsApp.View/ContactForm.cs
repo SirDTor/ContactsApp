@@ -60,12 +60,12 @@ namespace ContactsApp.View
         private string _idVkError;
 
         /// <summary>
-        /// 
+        /// Цвет ошибки
         /// </summary>
         private static Color _errorColorInTextBox = Color.LightPink;
 
         /// <summary>
-        /// 
+        /// Цвет отсутсвия ошибки
         /// </summary>
         private static Color _noErrorColorInTextBox = Color.White;
 
@@ -94,15 +94,20 @@ namespace ContactsApp.View
         private bool CheckFormOnErrors()
         {
             string fullError = null;
-            fullError += _fullNameError;
-            fullError += _emailError;
-            fullError += _phoneError;
-            fullError += _dateError;
-            fullError += _idVkError;
+            fullError += _fullNameError + _emailError + _phoneError + _dateError + _idVkError;
             if (fullError != null && fullError != "")
             {
-                MessageBox.Show($"{_fullNameError}\n{_emailError}\n{_phoneError}\n{_dateError}\n{_idVkError}",
-                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                fullError = null;
+                string[] strings = {_fullNameError, _emailError, _phoneError, _dateError, _idVkError};
+                for (int i = 0; i < strings.Length; i++)
+                {
+                    if (strings[i] != null)
+                    {
+                        fullError += $"{strings[i]}\n";
+                    }
+                }
+                //$"{_fullNameError}\n{_emailError}\n{_phoneError}\n{_dateError}\n{_idVkError}",
+                MessageBox.Show(fullError, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else return true;
@@ -239,7 +244,7 @@ namespace ContactsApp.View
         private void OkButton_Click(object sender, EventArgs e)
         {
             bool isNoErrorsOnForm = CheckFormOnErrors();
-            if (!isNoErrorsOnForm)
+            if (isNoErrorsOnForm)
             {
                 UpdateContact();
                 DialogResult = DialogResult.OK;

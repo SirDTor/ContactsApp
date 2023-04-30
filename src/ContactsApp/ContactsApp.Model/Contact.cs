@@ -59,7 +59,8 @@ namespace ContactsApp.Model
             {
                 if (value.Length >= 100)
                 {
-                    throw new ArgumentException($"Contact name must be less than 100, value = {_fullName.Length}");
+                    throw new ArgumentException($"Name:\n->Contact name must be less than 100, " +
+                        $"value = {_fullName.Length}\n");
                 }
                 TextInfo toUpperTextInfo = CultureInfo.CurrentCulture.TextInfo;
                 _fullName = toUpperTextInfo.ToTitleCase(value).ToString();
@@ -79,7 +80,8 @@ namespace ContactsApp.Model
             {
                 if (value.Length >= 100)
                 {
-                    throw new ArgumentException($"Contact email must be less than 100, value = {_email.Length}");
+                    throw new ArgumentException($"Email:\n->Contact email must be less than 100," +
+                        $" value = {_email.Length}\n");
                 }
                 _email = value;
             }
@@ -98,9 +100,10 @@ namespace ContactsApp.Model
             {
                 if (!Regex.IsMatch(value, PhoneNumberValidationMask))
                 {
-                    throw new ArgumentException($"The phone number contains an invalid character.\n Example:\n " +
+                    throw new ArgumentException($"PhoneNumber:\n->The phone number contains an" +
+                        $" invalid character.\nExample:\n" +
                         $"8(923)442-79-25\n" +
-                        $"89234427925");
+                        $"89234427925\n");
                 }
                 _phone = value;
             }
@@ -119,8 +122,8 @@ namespace ContactsApp.Model
             {
                 if (value.Year <= 1900 || value > DateTime.Now)
                 {
-                    throw new ArgumentException($"Year must be less or more than current year " + 
-                        $"But was {value.Year}");
+                    throw new ArgumentException($"Date:\n->Year must be less or more than " +
+                        $"current year But was {value.Year}\n");
                 }
                 _dateOfBirth = value;
                 
@@ -140,7 +143,8 @@ namespace ContactsApp.Model
             {
                 if (value.Length >= 50)
                 {
-                    throw new ArgumentException($"Contact ID must be less than 50, value = {_idVk.Length}");
+                    throw new ArgumentException($"IdVK:\n->Contact ID must be less than 50, " +
+                        $"value = {_idVk.Length}\n");
                 }
                 _idVk = value;
             }

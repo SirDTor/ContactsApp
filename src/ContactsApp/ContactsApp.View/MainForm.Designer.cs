@@ -313,6 +313,7 @@
             this.BirthdaySurnameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
             this.BirthdaySurnameLabel.Location = new System.Drawing.Point(85, 40);
             this.BirthdaySurnameLabel.Margin = new System.Windows.Forms.Padding(3, 6, 3, 0);
+            this.BirthdaySurnameLabel.MaximumSize = new System.Drawing.Size(400, 0);
             this.BirthdaySurnameLabel.Name = "BirthdaySurnameLabel";
             this.BirthdaySurnameLabel.Size = new System.Drawing.Size(201, 13);
             this.BirthdaySurnameLabel.TabIndex = 2;

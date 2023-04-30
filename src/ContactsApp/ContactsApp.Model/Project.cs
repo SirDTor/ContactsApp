@@ -35,10 +35,9 @@ namespace ContactsApp.Model
         /// <returns></returns>
         public List<Contact> FindBirhdayContact(List<Contact> contact)
         {
-            var selectedContact = from p in contact
-                                  where p.DateOfBirth == DateTime.Now
-                                  select p;
-            return (List<Contact>)selectedContact;
+            var birthdayContacts = contact.Where(c => c.DateOfBirth.Day == DateTime.Today.Day
+            && c.DateOfBirth.Month == DateTime.Today.Month).ToList();
+            return birthdayContacts;
         }
 
         /// <summary>
@@ -50,7 +49,7 @@ namespace ContactsApp.Model
         public List<Contact> FindContact(List<Contact> contact, string name)
         {
             var selectedContact = contact.Where(c => c.FullName.Contains(name)).ToList();
-            return (List<Contact>)selectedContact;
+            return selectedContact;
         }
     }
 }
