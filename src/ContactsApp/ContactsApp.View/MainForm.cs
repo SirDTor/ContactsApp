@@ -101,7 +101,8 @@ namespace ContactsApp.View
         /// </summary>
         private void AddRandomContacts()
         {
-            _project.Contacts.AddRange(RandomContacts.GenerateRandomContactsName(_rng, _project));
+            //_project.Contacts.AddRange(RandomContacts.GenerateRandomContactsName(_rng, _project));
+            RandomContacts.GenerateRandomContactsName(_rng, _project);
         }
 
         /// <summary>
