@@ -33,7 +33,7 @@ namespace ContactsApp.Model
         /// </summary>
         /// <param name="contact"></param>
         /// <returns></returns>
-        public List<Contact> FindBirhdayContact(List<Contact> contact)
+        public List<Contact> FindBirhdayContacts(List<Contact> contact)
         {
             var birthdayContacts = contact.Where(c => c.DateOfBirth.Day == DateTime.Today.Day
             && c.DateOfBirth.Month == DateTime.Today.Month).ToList();
@@ -46,10 +46,15 @@ namespace ContactsApp.Model
         /// <param name="contact"></param>
         /// <param name="name"></param>
         /// <returns></returns>
-        public List<Contact> FindContact(List<Contact> contact, string name)
+        public List<Contact> FindContacts(List<Contact> contact, string name)
         {
-            var selectedContact = contact.Where(c => c.FullName.Contains(name)).ToList();
-            return selectedContact;
+            if (name != "")
+            {
+                var selectedContact = contact.Where(c => c.FullName.Contains(name)).ToList();
+                return selectedContact;
+            }
+            else return contact;
+
         }
     }
 }

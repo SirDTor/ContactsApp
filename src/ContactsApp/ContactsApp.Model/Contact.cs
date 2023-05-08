@@ -41,7 +41,7 @@ namespace ContactsApp.Model
         private string _idVk;
 
         /// <summary>
-        /// 
+        /// Регулярное выражение для номера телефона
         /// </summary>
         private const string PhoneNumberValidationMask =
                     @"^((\+7|7|8)[[\(]?(\d{3})[\)]?]?\d{3}[[-]?(\d{2}[-]?]?\d{2}))$";
@@ -49,7 +49,7 @@ namespace ContactsApp.Model
         /// <summary>
         /// Возвращает или задает полное имя контакта
         /// </summary>
-        public string FullName  //Ограничение в 100 символов
+        public string FullName
         {
             get
             {
@@ -70,7 +70,7 @@ namespace ContactsApp.Model
         /// <summary>
         /// Возвращает или задает email контакта
         /// </summary>
-        public string Email    //Ограничение в 100 символов
+        public string Email
         {
             get
             {
@@ -109,7 +109,7 @@ namespace ContactsApp.Model
             }
         }
 
-        /// /// <summary>
+        /// <summary>
         /// Возвращает или задает дату рождения контакта
         /// </summary>
         public DateTime DateOfBirth
@@ -130,7 +130,7 @@ namespace ContactsApp.Model
             }
         }
 
-        ///  <summary>
+        /// <summary>
         /// Возвращает или задает ID ВКонтакте контакта
         /// </summary>
         public string IdVk
@@ -158,7 +158,8 @@ namespace ContactsApp.Model
         /// <param name="phone"></param>
         /// <param name="dateOfBirth"></param>
         /// <param name="idVk"></param>
-        public Contact(string fullName, string email, string phone, DateTime dateOfBirth, string idVk)
+        public Contact(string fullName, string email, string phone, 
+            DateTime dateOfBirth, string idVk)
         {
             FullName = fullName;
             Email = email;

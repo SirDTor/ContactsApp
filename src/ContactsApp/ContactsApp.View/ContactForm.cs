@@ -98,15 +98,15 @@ namespace ContactsApp.View
             if (fullError != null && fullError != "")
             {
                 fullError = null;
-                string[] strings = {_fullNameError, _emailError, _phoneError, _dateError, _idVkError};
-                for (int i = 0; i < strings.Length; i++)
+                string[] arrayOfErrors = {_fullNameError, _emailError, _phoneError, 
+                    _dateError, _idVkError};
+                for (int i = 0; i < arrayOfErrors.Length; i++)
                 {
-                    if (strings[i] != null)
+                    if (arrayOfErrors[i] != null)
                     {
-                        fullError += $"{strings[i]}\n";
+                        fullError += $"{arrayOfErrors[i]}\n";
                     }
                 }
-                //$"{_fullNameError}\n{_emailError}\n{_phoneError}\n{_dateError}\n{_idVkError}",
                 MessageBox.Show(fullError, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
