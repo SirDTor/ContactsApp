@@ -118,7 +118,7 @@
             this.VkTextBox.Location = new System.Drawing.Point(121, 239);
             this.VkTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.VkTextBox.Name = "VkTextBox";
-            this.VkTextBox.Size = new System.Drawing.Size(177, 22);
+            this.VkTextBox.Size = new System.Drawing.Size(209, 22);
             this.VkTextBox.TabIndex = 11;
             this.VkTextBox.TextChanged += new System.EventHandler(this.VkTextBox_TextChanged);
             // 
@@ -129,7 +129,7 @@
             this.DateOfBirthTimePicker.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
             this.DateOfBirthTimePicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.DateOfBirthTimePicker.Name = "DateOfBirthTimePicker";
-            this.DateOfBirthTimePicker.Size = new System.Drawing.Size(177, 22);
+            this.DateOfBirthTimePicker.Size = new System.Drawing.Size(209, 22);
             this.DateOfBirthTimePicker.TabIndex = 10;
             this.DateOfBirthTimePicker.Value = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.DateOfBirthTimePicker.ValueChanged += new System.EventHandler(this.DateOfBirthTimePicker_ValueChanged);
@@ -162,7 +162,7 @@
             this.PhoneNumberTextBox.Location = new System.Drawing.Point(121, 143);
             this.PhoneNumberTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.PhoneNumberTextBox.Name = "PhoneNumberTextBox";
-            this.PhoneNumberTextBox.Size = new System.Drawing.Size(177, 22);
+            this.PhoneNumberTextBox.Size = new System.Drawing.Size(209, 22);
             this.PhoneNumberTextBox.TabIndex = 6;
             this.PhoneNumberTextBox.Leave += new System.EventHandler(this.PhoneNumberTextBox_Leave);
             // 

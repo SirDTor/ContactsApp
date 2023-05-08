@@ -483,6 +483,7 @@
             this.ClientSize = new System.Drawing.Size(881, 554);
             this.Controls.Add(this.MainContactsTableLayoutPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(600, 300);
             this.Name = "MainForm";

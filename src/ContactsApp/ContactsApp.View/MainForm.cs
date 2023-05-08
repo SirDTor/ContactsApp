@@ -40,6 +40,7 @@ namespace ContactsApp.View
         private void UpdateListBox()
         {
             ContactsListBox.Items.Clear();
+
             _project.Contacts = _project.SortContactsBySurname(_project.Contacts);
             _currentContacts = _project.FindContacts(_project.Contacts, FindTextBox.Text);
 
@@ -48,6 +49,7 @@ namespace ContactsApp.View
                 ContactsListBox.Items.Add(currentContactList.FullName);
             }
             UpdateBirthdayPanel();
+
         }
 
         /// <summary>
@@ -59,11 +61,18 @@ namespace ContactsApp.View
             if (_project.Contacts.Count != 0)
             {
                 _birthdayContacts = _project.FindBirhdayContacts(_project.Contacts);
-                for (int i = 0; i < 3; i++)
+                if (_birthdayContacts.Count != 0)
                 {
-                    BirthdaySurnameLabel.Text += $"{_birthdayContacts[i].FullName}, ";
+                    for (int i = 0; i < _birthdayContacts.Count; i++)
+                    {
+                        BirthdaySurnameLabel.Text += $"{_birthdayContacts[i].FullName}, ";
+                        if (i >= 3)
+                        {
+                            BirthdaySurnameLabel.Text += "и т.д.";
+                            break;
+                        }
+                    }
                 }
-                BirthdaySurnameLabel.Text += "и т.д.";
             }
         }
 
@@ -86,7 +95,7 @@ namespace ContactsApp.View
         /// </summary>
         private void AddRandomContacts()
         {
-            _project = RandomContacts.GenerateRandomContactsName();
+            _project.Contacts.AddRange(RandomContacts.GenerateRandomContactsName());
         }
 
         /// <summary>
@@ -119,7 +128,7 @@ namespace ContactsApp.View
             if (index == -1) return;
             string message = $"Do you really want to remove {_currentContacts[index].FullName}?";
             string caption = "Delete contact";
-            DialogResult result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, 
+            DialogResult result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
 
             int indexInProject = _project.Contacts.IndexOf(_currentContacts[index]);
@@ -159,12 +168,21 @@ namespace ContactsApp.View
         public MainForm()
         {
             InitializeComponent();
-            this.KeyPreview = true;
+            _project = ProjectSerializer.LoadFromFile();
+            UpdateListBox();
+        }
+
+        private void AddRandomContactPictureBox_Click(object sender, EventArgs e)
+        {
+            AddRandomContacts();
+            UpdateListBox();
+            ProjectSerializer.SaveToFile(_project);
         }
 
         private void AddContactPictureBox_Click(object sender, EventArgs e)
         {
             AddContact();
+            ProjectSerializer.SaveToFile(_project);
             UpdateListBox();
         }
 
@@ -178,14 +196,17 @@ namespace ContactsApp.View
             else
             {
                 EditContact(ContactsListBox.SelectedIndex);
+                ProjectSerializer.SaveToFile(_project);
                 UpdateListBox();
             }
         }
 
         private void RemoveContactPictureBox_Click(object sender, EventArgs e)
         {
+            if (ContactsListBox.SelectedIndex == -1) return;
             RemoveContact(ContactsListBox.SelectedIndex);
             ClearSelectedContact();
+            ProjectSerializer.SaveToFile(_project);
             UpdateListBox();
         }
 
@@ -200,14 +221,9 @@ namespace ContactsApp.View
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            ProjectSerializer.SaveToFile(_project);
             e.Cancel = MessageBox.Show("Do you really want to close program?",
             "Attention", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes;
-        }
-
-        private void AddRandomContactPictureBox_Click(object sender, EventArgs e)
-        {
-            AddRandomContacts();
-            UpdateListBox();
         }
 
         private void FindTextBox_TextChanged(object sender, EventArgs e)
@@ -282,6 +298,12 @@ namespace ContactsApp.View
             {
                 var FormAbout = new AboutForm();
                 FormAbout.ShowDialog();
+            }
+            if (e.KeyCode == Keys.Delete)
+            {
+                RemoveContact(ContactsListBox.SelectedIndex);
+                ProjectSerializer.SaveToFile(_project);
+                UpdateListBox();
             }
         }
 

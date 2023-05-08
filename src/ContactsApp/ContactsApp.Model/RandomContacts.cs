@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ContactsApp.Model
 {
     /// <summary>
-    /// 
+    /// Класс генерации случайных контактов
     /// </summary>
     public class RandomContacts
     {
@@ -79,7 +79,9 @@ namespace ContactsApp.Model
         /// </summary>
         /// <param name="_randomNumber"></param>
         /// <param name="lengthOfArray"></param>
-        /// <returns></returns>
+        /// <returns>
+        /// Возвращает число
+        /// </returns>
         private static int GenerateDigit(int lengthOfArray)
         {
             return _randomNumber.Next(lengthOfArray);
@@ -90,10 +92,9 @@ namespace ContactsApp.Model
         /// </summary>
         /// <param name="_randomNumber"></param>
         /// <param name="randomContacts"></param>
-        /// <returns></returns>
-        public static Project GenerateRandomContactsName()
+        public static List<Contact> GenerateRandomContactsName()
         {
-
+            _project.Contacts.Clear();
             for (int i = 0; i <= 10; i++)
             {
                 _fullName[i] = _arrSurname[GenerateDigit(_arrSurname.Length)] + " " +
@@ -117,7 +118,7 @@ namespace ContactsApp.Model
 
                 _project.Contacts.Add(contact);
             }
-            return _project;
+            return _project.Contacts;
         }
     }
 }
