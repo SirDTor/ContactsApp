@@ -42,6 +42,7 @@ namespace ContactsApp.Model
 
         /// <summary>
         /// Регулярное выражение для номера телефона
+        /// Пример: +7(000)000-00-00
         /// </summary>
         private const string PhoneNumberValidationMask =
                     @"^((\+7|7|8)[[\(]?(\d{3})[\)]?]?\d{3}[[-]?(\d{2}[-]?]?\d{2}))$";

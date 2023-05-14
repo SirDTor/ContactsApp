@@ -60,19 +60,19 @@ namespace ContactsApp.View
         private string _idVkError;
 
         /// <summary>
-        /// Цвет ошибки
+        /// Цвет ошибки correctBackColor
         /// </summary>
         private static Color _errorColorInTextBox = Color.LightPink;
 
         /// <summary>
-        /// Цвет отсутсвия ошибки
+        /// Цвет отсутсвия ошибки errirBackColor
         /// </summary>
         private static Color _noErrorColorInTextBox = Color.White;
 
         public ContactForm()
         {
             InitializeComponent();
-            UpdateForm();
+            //UpdateForm();
         }
 
         /// <summary>

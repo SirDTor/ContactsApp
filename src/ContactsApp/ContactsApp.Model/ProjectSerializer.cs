@@ -50,7 +50,7 @@ namespace ContactsApp.Model
                     }
                     catch (Exception)
                     {
-                        throw new ArgumentException("Error of create file");
+                        throw new ArgumentException("Error to create file");
                     }
                     finally
                     {
