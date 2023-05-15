@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.Eventing.Reader;
 using System.Globalization;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace ContactsApp.Model
 {
@@ -61,7 +55,7 @@ namespace ContactsApp.Model
                 if (value.Length >= 100)
                 {
                     throw new ArgumentException($"Name:\n->Contact name must be less than 100, " +
-                        $"value = {_fullName.Length}\n");
+                        $"value = {value.Length}\n");
                 }
                 TextInfo toUpperTextInfo = CultureInfo.CurrentCulture.TextInfo;
                 _fullName = toUpperTextInfo.ToTitleCase(value).ToString();
@@ -82,7 +76,7 @@ namespace ContactsApp.Model
                 if (value.Length >= 100)
                 {
                     throw new ArgumentException($"Email:\n->Contact email must be less than 100," +
-                        $" value = {_email.Length}\n");
+                        $" value = {value.Length}\n");
                 }
                 _email = value;
             }
@@ -145,7 +139,7 @@ namespace ContactsApp.Model
                 if (value.Length >= 50)
                 {
                     throw new ArgumentException($"IdVK:\n->Contact ID must be less than 50, " +
-                        $"value = {_idVk.Length}\n");
+                        $"value = {value.Length}\n");
                 }
                 _idVk = value;
             }
