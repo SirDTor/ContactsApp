@@ -60,7 +60,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\ContactsApp.Model\ContactsApp.Model.csproj">
       <Project>{e8b922ca-b4c2-49a4-836b-d2baa47b93b6}</Project>
-      <Name>ContactsApp.Model</Name>
+      <Name>ContactsApp</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
