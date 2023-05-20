@@ -20,41 +20,40 @@ namespace ContactsApp.Model
         /// <summary>
         /// Возвращает отсортированный список контактов
         /// </summary>
-        /// <param name="contact"></param>
+        /// <param name="contacts"></param>
         /// <returns></returns>
-        public List<Contact> SortContactsBySurname(List<Contact> contact)
+        public List<Contact> SortContactsByFullName(List<Contact> contacts)
         {
-            var orderByContact = contact.OrderBy(c => c.FullName).ToList();
+            var orderByContact = contacts.OrderBy(contact => contact.FullName).ToList();
             return orderByContact;
         }
 
         /// <summary>
         /// Возвращает список именинников
         /// </summary>
-        /// <param name="contact"></param>
+        /// <param name="contacts"></param>
         /// <returns></returns>
-        public List<Contact> FindBirhdayContacts(List<Contact> contact)
+        public List<Contact> FindBirthdayContacts(List<Contact> contacts)
         {
-            var birthdayContacts = contact.Where(c => c.DateOfBirth.Day == DateTime.Today.Day
-            && c.DateOfBirth.Month == DateTime.Today.Month).ToList();
+            var birthdayContacts = contacts.Where(contact => contact.DateOfBirth.Day == DateTime.Today.Day
+            && contact.DateOfBirth.Month == DateTime.Today.Month).ToList();
             return birthdayContacts;
         }
 
         /// <summary>
         /// Возвращает найденные по подстроке контакты
         /// </summary>
-        /// <param name="contact"></param>
+        /// <param name="contacts"></param>
         /// <param name="name"></param>
         /// <returns></returns>
-        public List<Contact> FindContacts(List<Contact> contact, string name)
+        public List<Contact> FindContacts(List<Contact> contacts, string contactName)
         {
-            if (name != "")
+            if (contactName != "")
             {
-                var selectedContact = contact.Where(c => c.FullName.Contains(name)).ToList();
+                var selectedContact = contacts.Where(contact => contact.FullName.Contains(contactName)).ToList();
                 return selectedContact;
             }
-            else return contact;
-
+            else return contacts;
         }
     }
 }

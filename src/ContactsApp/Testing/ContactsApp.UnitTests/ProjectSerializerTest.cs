@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ContactsApp.UnitTests
 {
-    internal class Project
+    internal class ProjectSerializerTest
     {
     }
 }

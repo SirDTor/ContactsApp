@@ -49,9 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contact.cs" />
-    <Compile Include="Project.cs" />
-    <Compile Include="ProjectSerializer.cs" />
+    <Compile Include="ContactTest.cs" />
+    <Compile Include="ProjectTest.cs" />
+    <Compile Include="ProjectSerializerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -60,7 +60,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\ContactsApp.Model\ContactsApp.Model.csproj">
       <Project>{e8b922ca-b4c2-49a4-836b-d2baa47b93b6}</Project>
-      <Name>ContactsApp</Name>
+      <Name>ContactsApp.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

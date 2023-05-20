@@ -43,19 +43,8 @@ namespace ContactsApp.Model
                 Directory.CreateDirectory(Directoryname);
                 if (!File.Exists(Filename))
                 {
-                    FileStream fileWithDataContacts = null;
-                    try
-                    {
-                        fileWithDataContacts = new FileStream(Filename, FileMode.Create);
-                    }
-                    catch (Exception)
-                    {
-                        throw new ArgumentException("Error to create file");
-                    }
-                    finally
-                    {
-                        fileWithDataContacts.Close();
-                    }
+                    FileStream fileWithDataContacts = new FileStream(Filename, FileMode.Create);
+                    fileWithDataContacts.Close();
                 }
             }
             JsonSerializer serializer = new JsonSerializer();
@@ -82,11 +71,17 @@ namespace ContactsApp.Model
             try
             {
                 JsonSerializer serializer = new JsonSerializer();
-                using (StreamReader sr = new StreamReader(Filename))
-                using (JsonReader reader = new JsonTextReader(sr))
+                using (StreamReader streamReader = new StreamReader(Filename))
+                using (JsonReader reader = new JsonTextReader(streamReader))
                 {
-                    project = serializer.Deserialize<Project>(reader);
-
+                    if (reader != null)
+                    {
+                        project = serializer.Deserialize<Project>(reader);
+                    }
+                    else 
+                    { 
+                        return project; 
+                    }
                 }
                 return project;
             }

@@ -41,7 +41,7 @@ namespace ContactsApp.View
         {
             ContactsListBox.Items.Clear();
 
-            _project.Contacts = _project.SortContactsBySurname(_project.Contacts);
+            _project.Contacts = _project.SortContactsByFullName(_project.Contacts);
             _currentContacts = _project.FindContacts(_project.Contacts, FindTextBox.Text);
 
             foreach (Contact currentContactList in _currentContacts)
@@ -49,7 +49,6 @@ namespace ContactsApp.View
                 ContactsListBox.Items.Add(currentContactList.FullName);
             }
             UpdateBirthdayPanel();
-
         }
 
         /// <summary>
@@ -60,7 +59,7 @@ namespace ContactsApp.View
             BirthdaySurnameLabel.Text = null;
             if (_project.Contacts.Count != 0)
             {
-                _birthdayContacts = _project.FindBirhdayContacts(_project.Contacts);
+                _birthdayContacts = _project.FindBirthdayContacts(_project.Contacts);
                 if (_birthdayContacts.Count != 0)
                 {
                     for (int i = 0; i < _birthdayContacts.Count; i++)
@@ -175,8 +174,8 @@ namespace ContactsApp.View
         private void AddRandomContactPictureBox_Click(object sender, EventArgs e)
         {
             AddRandomContacts();
-            UpdateListBox();
             ProjectSerializer.SaveToFile(_project);
+            UpdateListBox();
         }
 
         private void AddContactPictureBox_Click(object sender, EventArgs e)
@@ -196,8 +195,8 @@ namespace ContactsApp.View
             else
             {
                 EditContact(ContactsListBox.SelectedIndex);
-                ProjectSerializer.SaveToFile(_project);
                 UpdateListBox();
+                ProjectSerializer.SaveToFile(_project);
             }
         }
 
