@@ -38,7 +38,7 @@ namespace ContactsApp.Model
         /// Регулярное выражение для номера телефона
         /// Пример: +7(000)000-00-00
         /// </summary>
-        private const string PhoneNumberValidationMask =
+        private const string _phoneNumberValidationMask =
                     @"^((\+7|7|8)[[\(]?(\d{3})[\)]?]?\d{3}[[-]?(\d{2}[-]?]?\d{2}))$";
 
         /// <summary>
@@ -93,7 +93,7 @@ namespace ContactsApp.Model
             }
             set
             {
-                if (!Regex.IsMatch(value, PhoneNumberValidationMask))
+                if (!Regex.IsMatch(value, _phoneNumberValidationMask))
                 {
                     throw new ArgumentException($"PhoneNumber:\n->The phone number contains an" +
                         $" invalid character.\nExample:\n" +

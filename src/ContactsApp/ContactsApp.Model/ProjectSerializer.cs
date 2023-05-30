@@ -23,13 +23,13 @@ namespace ContactsApp.Model
         /// <summary>
         /// Поле хранящая путь до каталога
         /// </summary>
-        public static string Directoryname = GetFolderPath(SpecialFolder.ApplicationData)
+        public static string DirectoryName = GetFolderPath(SpecialFolder.ApplicationData)
             + @"\Zorin\ContactsApp";
 
         /// <summary>
         /// Поле хранящее путь до файла и его название
         /// </summary>
-        public static string Filename = Directoryname + @"\userdata.json";
+        public static string FileName = DirectoryName + @"\userdata.json";
 
         /// <summary>
         /// Метод реализующий сохранение данных в json файл
@@ -38,17 +38,17 @@ namespace ContactsApp.Model
         /// <exception cref="ArgumentException"></exception>
         public static void SaveToFile(Project project)
         {
-            if (!Directory.Exists(Directoryname))
+            if (!Directory.Exists(DirectoryName))
             {
-                Directory.CreateDirectory(Directoryname);
-                if (!File.Exists(Filename))
+                Directory.CreateDirectory(DirectoryName);
+                if (!File.Exists(FileName))
                 {
-                    FileStream fileWithDataContacts = new FileStream(Filename, FileMode.Create);
+                    FileStream fileWithDataContacts = new FileStream(FileName, FileMode.Create);
                     fileWithDataContacts.Close();
                 }
             }
             JsonSerializer serializer = new JsonSerializer();
-            using (StreamWriter sw = new StreamWriter(Filename))
+            using (StreamWriter sw = new StreamWriter(FileName))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {
                 serializer.Serialize(writer, project);
@@ -64,14 +64,14 @@ namespace ContactsApp.Model
         public static Project LoadFromFile()
         {
             Project project = new Project();
-            if (!File.Exists(Filename))
+            if (!File.Exists(FileName))
             {
                 return project;
             }
             try
             {
                 JsonSerializer serializer = new JsonSerializer();
-                using (StreamReader streamReader = new StreamReader(Filename))
+                using (StreamReader streamReader = new StreamReader(FileName))
                 using (JsonReader reader = new JsonTextReader(streamReader))
                 {
                     if (reader != null)
