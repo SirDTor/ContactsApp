@@ -6,7 +6,7 @@ using NUnit.Framework.Constraints;
 namespace ContactsApp.UnitTests
 {
     [TestFixture]
-    public class ContactTest
+    public class ContactTests
     {
         [TestCase("Смирнов", "Геттер FullName возвращает неправильную фамилию", 
             TestName = "Позитивный тест геттера FullName")]

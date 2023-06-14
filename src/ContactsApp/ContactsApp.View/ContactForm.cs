@@ -143,7 +143,6 @@ namespace ContactsApp.View
             {
                 _fullNameError = exception.Message;
                 FullNameTextBox.BackColor = _errorColorInTextBox;
-                throw new ArgumentException(exception.Message);
             }
         }
 
@@ -165,7 +164,6 @@ namespace ContactsApp.View
             {
                 _emailError = exception.Message;
                 EmailTextBox.BackColor = _errorColorInTextBox;
-                throw new ArgumentException(exception.Message);
             }
         }
 
@@ -187,7 +185,6 @@ namespace ContactsApp.View
             {
                 _dateError = exception.Message;
                 DateOfBirthTimePicker.CalendarForeColor = _errorColorInTextBox;
-                throw new ArgumentException(exception.Message);
             }
         }
 
@@ -209,7 +206,6 @@ namespace ContactsApp.View
             {
                 VkTextBox.BackColor = _errorColorInTextBox;
                 _idVkError = exception.Message;
-                throw new ArgumentException(exception.Message);
             }
         }
 
@@ -231,7 +227,6 @@ namespace ContactsApp.View
             {
                 _phoneError = exception.Message;
                 PhoneNumberTextBox.BackColor = _errorColorInTextBox;
-                throw new ArgumentException(exception.Message);
             }
         }
 
